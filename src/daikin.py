@@ -309,12 +309,15 @@ class DaikinMessage:
 
 class DaikinIR:
     def __init__(self):
+
+        self.state = DaikinState()
+        self.message = DaikinMessage(self.state)
+
+    def get_ir(self):
         protocol = "NEC"
         gpio_pin = 25
         protocol_config = dict()
-        self.ir = IR(gpio_pin, protocol, protocol_config)
-        self.state = DaikinState()
-        self.message = DaikinMessage(self.state)
+        return IR(gpio_pin, protocol, protocol_config)
 
     def frame_bin(self, frame):
         return "".join([bin(item)[2:].zfill(8) for item in frame])
@@ -324,9 +327,19 @@ class DaikinIR:
 
         # code = self.frame_bin(self.message.frame_one + self.message.frame_two +
         #                       self.message.frame_three)
-        self.ir.send_code(self.message.frame_one)
-        self.ir.send_code(self.frame_bin(self.message.frame_two))
-        self.ir.send_code(self.frame_bin(self.message.frame_three))
+        print(self.message.frame_one)
+        print(self.message.frame_two)
+        print(self.message.frame_three)
+        if = self.get_ir()
+        ir.send_code(self.frame_bin(self.message.frame_one))
+        if = self.get_ir()
+        ir.send_code(self.frame_bin(self.message.frame_two))
+        if = self.get_ir()
+        ir.send_code(self.frame_bin(self.message.frame_three[:8]))
+        if = self.get_ir()
+        ir.send_code(self.frame_bin(self.message.frame_three[8:16]))
+        if = self.get_ir()
+        ir.send_code(self.frame_bin(self.message.frame_three[16:]))
 
 
 if __name__ == "__main__":
