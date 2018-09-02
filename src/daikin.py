@@ -316,12 +316,15 @@ class DaikinIR:
         self.state = DaikinState()
         self.message = DaikinMessage(self.state)
 
+    def frame_bin(self, frame):
+        return "".join([bin(item)[2:].zfill(8) for item in frame])
+
     def transmit(self):
         self.state.power = True
 
-        ir.send_code(self.message.frame_one)
-        ir.send_code(self.message.frame_two)
-        ir.send_code(self.message.frame_three)
+        self.ir.send_code(self.frame_bin(self.message.frame_one))
+        self.ir.send_code(self.frame_bin(self.message.frame_two))
+        self.ir.send_code(self.frame_bin(self.message.frame_three))
 
 
 if __name__ == "__main__":
