@@ -1,4 +1,6 @@
+#!/usr/bin/env python3
 from enum import Enum
+from pyslinger import IR
 
 
 class AC_MODE(Enum):
@@ -145,11 +147,6 @@ class DaikinState:
     def timer(self, value):
         # TODO: timer
         self._timer = value
-
-
-class DaikinController(object):
-    def __init__(self):
-        self.state = DaikinState()
 
 
 class DaikinMessage:
@@ -308,3 +305,26 @@ class DaikinMessage:
     def _set_last_four_bits(self, frame, index, to):
         frame[index] = frame[index] & 0xf0
         frame[index] = frame[index] | to
+
+
+class DaikinIR:
+    def __init__(self):
+        protocol = "NEC"
+        gpio_pin = 25
+        protocol_config = dict()
+        self.ir = IR(gpio_pin, protocol, protocol_config)
+        self.state = DaikinState()
+        self.message = DaikinMessage(self.state)
+
+    def transmit(self):
+        self.state.power = True
+
+        ir.send_code(self.message.frame_one)
+        ir.send_code(self.message.frame_two)
+        ir.send_code(self.message.frame_three)
+
+
+if __name__ == "__main__":
+    daikin = DaikinIR()
+    daikin.transmit()
+    print("Exiting IR")

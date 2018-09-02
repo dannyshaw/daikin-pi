@@ -55,3 +55,9 @@ class TestDaikinMessage(TestCase):
             '0x0', '0x0', '0xc1', '0x80', '0x0'
         ]
         self.assertFrameData(expected, self.message.frame_three)
+
+    def test_bin_string(self):
+        self.assertEqual(8, len(self.message.frame_one))
+        self.assertEqual(
+            '', "".join(
+                [bin(item)[2:].zfill(8) for item in self.message.frame_one]))

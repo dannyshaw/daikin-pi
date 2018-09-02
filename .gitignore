@@ -1,3 +1,2 @@
-
-.pytest_cache/v/cache/lastfailed
-src/.pytest_cache/v/cache/lastfailed
+.pytest_cache
+src/.pytest_cache
