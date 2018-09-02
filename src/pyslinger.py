@@ -20,7 +20,7 @@ class Pulses_struct(ctypes.Structure):
 class Wave_generator():
     def __init__(self, protocol):
         self.protocol = protocol
-        MAX_PULSES = 12000  # from pigpio.h
+        MAX_PULSES = 120000  # from pigpio.h
         Pulses_array = Pulses_struct * MAX_PULSES
         self.pulses = Pulses_array()
         self.pulse_count = 0
