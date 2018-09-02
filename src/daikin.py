@@ -331,9 +331,11 @@ class DaikinIR:
         print(self.message.frame_one)
         print(self.message.frame_two)
         print(self.message.frame_three)
-        self.send_code(self.frame_bin(self.message.frame_one))
-        self.send_code(self.frame_bin(self.message.frame_two))
-        self.send_code(self.frame_bin(self.message.frame_three))
+        self.send_frames([
+            self.frame_bin(self.message.frame_one),
+            self.frame_bin(self.message.frame_two),
+            self.frame_bin(self.message.frame_three),
+        ])
         # self.send_code(self.frame_bin(self.message.frame_three[8:16]))
         # self.send_code(self.frame_bin(self.message.frame_three[16:]))
 
