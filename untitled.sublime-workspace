@@ -1,0 +1,2113 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"skip",
+				"skip_header_and_checksum\tfunction"
+			],
+			[
+				"frame",
+				"frame_one\tfunction"
+			],
+			[
+				"fra",
+				"frame_one\tfunction"
+			],
+			[
+				"set",
+				"set_last_four_bits\tfunction"
+			],
+			[
+				"mode",
+				"mode_power_timers\tstatement"
+			],
+			[
+				"MODE",
+				"MODE_POWER_TIMERS\tstatement"
+			],
+			[
+				"new",
+				"new_frame"
+			],
+			[
+				"Daik",
+				"DaikinState"
+			],
+			[
+				"FAN",
+				"FAN_MODE\tclass"
+			],
+			[
+				"pr",
+				"prTextArea"
+			],
+			[
+				"proces",
+				"processWeek"
+			],
+			[
+				"date",
+				"dateString"
+			],
+			[
+				"marks",
+				"marksForQuestion"
+			],
+			[
+				"apply",
+				"applyMainVideoHooks"
+			],
+			[
+				"main",
+				"onMainVideoReady"
+			],
+			[
+				"getWis",
+				"getWistiaQueue"
+			],
+			[
+				"embed",
+				"embedProperties"
+			],
+			[
+				"resov",
+				"resolve_intro_wistia_hash"
+			],
+			[
+				"exempl",
+				"exemplar_response_checklist_item"
+			],
+			[
+				"unsub",
+				"unsubmittedItemIds"
+			],
+			[
+				"checklist",
+				"checklistReflections"
+			],
+			[
+				"onSub",
+				"onSubmitChecklistReflection"
+			],
+			[
+				"selected_",
+				"selected_answer_id"
+			],
+			[
+				"selected",
+				"selected_answer"
+			],
+			[
+				"select_re",
+				"selected_answer_id"
+			],
+			[
+				"prefe",
+				"prefetch_related_objects\tfunction"
+			],
+			[
+				"select",
+				"selected_answer"
+			],
+			[
+				"expected",
+				"expected_keys\tstatement"
+			],
+			[
+				"assert_set",
+				"assert_set_contains"
+			],
+			[
+				"Exem",
+				"ExemplarResponseChecklistItemReflectionSerializer\tclass"
+			],
+			[
+				"Sele",
+				"SelectExamResponseSerializer\tclass"
+			],
+			[
+				"exam",
+				"exam_response\tparam"
+			],
+			[
+				"ExamS",
+				"ExamSolution\tmodule"
+			],
+			[
+				"Pol",
+				"PolymorphicQuerySet\tclass"
+			],
+			[
+				"ExamRe",
+				"ExamResponseSerializerBase\tclass"
+			],
+			[
+				"check",
+				"checklist_item_2\tstatement"
+			],
+			[
+				"checklis",
+				"checklist_item_1\tstatement"
+			],
+			[
+				"checl",
+				"checklist_item_1\tstatement"
+			],
+			[
+				"response",
+				"response_data\tstatement"
+			],
+			[
+				"non",
+				"non_boolean\tstatement"
+			],
+			[
+				"request",
+				"request_checklist_ids\tstatement"
+			],
+			[
+				"reque",
+				"request_checklist_ids\tstatement"
+			],
+			[
+				"solution",
+				"solution_checklist_ids\tstatement"
+			],
+			[
+				"S",
+				"SubmitResponseButton"
+			],
+			[
+				"Mul",
+				"MultiChoiceLessonQuestion"
+			],
+			[
+				"sub",
+				"submitMultiChoiceQuestionResponse"
+			],
+			[
+				"update",
+				"updatedAnswer"
+			],
+			[
+				"Button",
+				"ButtonToolbar"
+			],
+			[
+				"sideB",
+				"sideBarColumn"
+			],
+			[
+				"side",
+				"sideBarColumn"
+			],
+			[
+				"exem",
+				"exemplar_response_checklist_items"
+			],
+			[
+				"w",
+				"WistiaUtils"
+			],
+			[
+				"au",
+				"autoAssignWistiaVideosToQuestions"
+			],
+			[
+				"map",
+				"mapDispatchToProps"
+			],
+			[
+				"ex",
+				"exemplar_response_checklist_items"
+			],
+			[
+				"exemplar",
+				"exemplar_response"
+			],
+			[
+				"que",
+				"questionId"
+			],
+			[
+				"Chec",
+				"ChecklistItemsEditor"
+			],
+			[
+				"in",
+				"InlineLoadingIndicator"
+			],
+			[
+				"Payment",
+				"PaymentView\tclass"
+			],
+			[
+				"Scho",
+				"SchoolClassSummarySerializer\tclass"
+			],
+			[
+				"excl",
+				"exclude_teachers\tstatement"
+			],
+			[
+				"prefetch",
+				"prefetch_related"
+			],
+			[
+				"Text",
+				"TextExamResponseWithChecklist\tclass"
+			],
+			[
+				"HTTP_40",
+				"HTTP_400_BAD_REQUEST\tstatement"
+			],
+			[
+				"40",
+				"HTTP_400_BAD_REQUEST"
+			],
+			[
+				"student_user",
+				"student_user_id"
+			],
+			[
+				"ExamResponse",
+				"ExamResponseSerializer\tclass"
+			],
+			[
+				"exam_",
+				"exam_response"
+			],
+			[
+				"q",
+				"question_type\tparam"
+			],
+			[
+				"cl",
+				"classmethod\tclass"
+			],
+			[
+				"ret",
+				"retrieve_question\tfunction"
+			],
+			[
+				"Inher",
+				"InheritanceQuerySetMixin\tclass"
+			],
+			[
+				"Inheritea",
+				"InheritanceManagerMixin\tclass"
+			],
+			[
+				"In",
+				"InheritenceManagerMixin"
+			],
+			[
+				"retr",
+				"retrieve_question"
+			],
+			[
+				"question",
+				"question_id"
+			],
+			[
+				"ExamQ",
+				"ExamQuestion\tclass"
+			],
+			[
+				"model",
+				"model_utils\tmodule"
+			],
+			[
+				"Exempl",
+				"ExemplarResponseChecklistItemReflectionSerializer\tclass"
+			],
+			[
+				"TYPE_TEXT",
+				"TYPE_TEXT_CHECKLIST\tstatement"
+			],
+			[
+				"return",
+				"returned_checklist_feedback\tstatement"
+			],
+			[
+				"exemplar_",
+				"exemplar_response_checklist_items"
+			],
+			[
+				"remove",
+				"removed_item\tstatement"
+			],
+			[
+				"assert",
+				"assert_false\tmodule"
+			],
+			[
+				"log",
+				"log_teacher_feedback_to_vero"
+			],
+			[
+				"v",
+				"log_teacher_feedback_to_vero\tfunction"
+			],
+			[
+				"ver",
+				"vero_notification\tmodule"
+			],
+			[
+				"prefet",
+				"prefetch_related"
+			],
+			[
+				"revers",
+				"reverse_code\tparam"
+			],
+			[
+				"migr",
+				"migrator\tfunction"
+			],
+			[
+				"Tab",
+				"TabularInline\tclass"
+			],
+			[
+				"ExemplarChecklistR",
+				"ExemplarChecklistShortAnswerResponse"
+			],
+			[
+				"Rub",
+				"RubricReflectionItem\tclass"
+			],
+			[
+				"NotImpl",
+				"NotImplementedError\tclass"
+			],
+			[
+				"rub",
+				"RubricReflectionItem"
+			],
+			[
+				"Exam",
+				"ExamSolution\tclass"
+			],
+			[
+				"related",
+				"related_name"
+			],
+			[
+				"For",
+				"ForeignKey\tclass"
+			],
+			[
+				"Man",
+				"ManyToOneRel\tclass"
+			],
+			[
+				"On",
+				"OneToOneField\tclass"
+			],
+			[
+				"getNode",
+				"getNodeTypeStore"
+			],
+			[
+				"get",
+				"getNodeKey"
+			],
+			[
+				"branch",
+				"branchtype"
+			],
+			[
+				"brnach",
+				"branchtype_refs\tstatement"
+			],
+			[
+				"C",
+				"CURRICULUM\tstatement"
+			],
+			[
+				"branchtype",
+				"branch_type_name"
+			],
+			[
+				"link",
+				"linked_instance\tstatement"
+			],
+			[
+				"add",
+				"add_relation_change_link\tfunction"
+			],
+			[
+				"change",
+				"change_link\tfunction"
+			],
+			[
+				"school_class",
+				"school_class_link"
+			],
+			[
+				"app",
+				"app_label"
+			],
+			[
+				"attr",
+				"attr_name\tparam"
+			],
+			[
+				"Course",
+				"CourseOnly"
+			],
+			[
+				"restr",
+				"restricted"
+			],
+			[
+				"tod",
+				"tod_django\tmodule"
+			],
+			[
+				"BRANCH",
+				"BRANCH_TYPES"
+			],
+			[
+				"should",
+				"should_have_access"
+			],
+			[
+				"is",
+				"is_accessible_to_profile"
+			],
+			[
+				"has",
+				"mock_has_paid_accesss"
+			],
+			[
+				"mock",
+				"mock_last_transaction"
+			],
+			[
+				"reverse",
+				"reverse_sql\tparam"
+			],
+			[
+				"Run",
+				"RunSQL\tclass"
+			],
+			[
+				"vero",
+				"vero_integration\tmodule"
+			],
+			[
+				"depre",
+				"_deprecated_decorator"
+			],
+			[
+				"Subject",
+				"SubjectFactory\tclass"
+			],
+			[
+				"curri",
+				"curriculum\tstatement"
+			],
+			[
+				"Curr",
+				"CurriculumFactory\tclass"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "/home/danny/dev/repos/Daikin-IR-Reverse/DaikinLibrary/src/com/lafois/domo/daikin/DaikinUnitState.java",
+			"settings":
+			{
+				"buffer_size": 2927,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "from enum import Enum\n\n\nclass AC_MODE(Enum):\n    AUTO = 0x0\n    DRY = 0x2\n    COOL = 0x3\n    HEAT = 0x4\n    FAN = 0x6\n\n\nclass FAN_MODE(Enum):\n    AUTO = 0xa\n    SILENT = 0xb\n\n    # Speed is technically a separate frame\n    # if manual, speed is relevant\n    ONE = 0x3\n    TWO = 0x4\n    THREE = 0x5\n    FOUR = 0x6\n    FIVE = 0x7\n\n\n# on = delay til unit turns on\n# off = delay til unit turns off\n# none = no timer\nclass TIMER_MODE(Enum):\n    SET_ON = True\n    SET_OFF = False\n    SET_NONE = None\n\n\nclass DaikinState:\n    def __init__(self,\n                 power=False,\n                 temperature=20,\n                 fan_mode=FAN_MODE.AUTO,\n                 ac_mode=AC_MODE.AUTO):\n\n        self.power = power\n        self.temperature = temperature\n        self.fan_mode = fan_mode\n        self.ac_mode = ac_mode\n\n        self.swing_vertical = False\n        self.swing_horizontal = False\n        self.economy = False\n        self.comfort = False\n        self.powerful = False\n        self.timer = None\n\n\nclass DaikinController:\n    def __init__(self, state=None):\n        self.state = state or DaikinState()\n\n    def new_frame(self, size=8):\n        frame = [0x00 for _ in range(size)]\n        # All frames start with this header\n        frame[0] = 0x11\n        frame[1] = 0xda\n        frame[2] = 0x27\n        frame[3] = 0x00\n        return frame\n\n    def checksum(self, frame):\n        return sum(frame) & 0xff\n\n    @property\n    def frame_one(self):\n        MESSAGE_ID = 4\n        COMFORT = 6\n        CHECKSUM = 7\n\n        frame = self.new_frame()\n\n        # Message ID\n        frame[MESSAGE_ID] = 0xc5\n\n        # Comfort mode\n        if self.state.comfort:\n            frame[COMFORT] = 0x10\n\n        # Checksum\n        frame[CHECKSUM] = self.checksum(frame)\n\n        return frame\n\n    @property\n    def frame_two(self):\n        MESSAGE_ID = 4\n        CHECKSUM = 7\n\n        frame = self.new_frame()\n\n        # Message ID\n        frame[MESSAGE_ID] = 0x42\n\n        # Checksum\n        frame[CHECKSUM] = self.checksum(frame)\n\n        return frame\n\n    def set_first_four_bits(self, frame, index, to):\n        frame[index] = 0x0f & frame[index]  # null first 4 bytes\n        frame[index] = (to << 4) | frame[index]  # fill first 4 bytes\n\n    def set_last_four_bits(self, frame, index, to):\n        frame[index] = frame[index] & 0xf0\n        frame[index] = frame[index] | to\n\n    @property\n    def frame_three(self):\n        MESSAGE_ID = 4\n        MODE_POWER_TIMERS = 5\n        TEMPERATURE = 6\n        SWING_HORIZONTAL = 8\n        FAN_SETTING = 8\n        SWING_VERTICAL = 9\n        TIMER_A = 10\n        TIMER_B = 11\n        TIMER_C = 12\n        POWERFUL = 13\n        ECONOMY = 16\n        CHECKSUM = 18\n\n        frame = self.new_frame(19)\n\n        # Set initial fixed frame bits\n        frame[SWING_HORIZONTAL] = 0xb0\n        frame[MODE_POWER_TIMERS] = 0x08\n        frame[15] = 0xc1  # dunno just always set to this..\n        frame[ECONOMY] = 0x80\n\n        # Message ID\n        frame[MESSAGE_ID] = 0x00\n\n        # Temperature - doubled for encoding\n        frame[TEMPERATURE] = self.state.temperature << 1\n\n        #  AC_MODE_POWER_TIMERS - encodes all three into one byte\n        # [ 0     0     0     0     1      0        0       0     ]\n        # [(       ac_mode      ) fixed (set on)(set off)(pwr on) ]\n\n        # Set AC_MODE\n        self.set_first_four_bits(frame, MODE_POWER_TIMERS,\n                                 self.state.ac_mode.value)\n\n        # Timer Is Setting Unit On/Off\n        if self.state.timer is not None:\n            if self.state.timer == TIMER_MODE.OFF:\n                frame[MODE_POWER_TIMERS] = frame[MODE_POWER_TIMERS] | 0x04\n            elif self.state.timer == TIMER_MODE.ON:\n                frame[MODE_POWER_TIMERS] = frame[MODE_POWER_TIMERS] | 0x02\n\n        # Power On/Off\n        if self.state.power:\n            frame[MODE_POWER_TIMERS] = frame[MODE_POWER_TIMERS] | 0x01\n\n        # Fan Mode/Speed\n        self.set_first_four_bits(frame, FAN_SETTING, self.state.fan_mode.value)\n\n        # Fan Swing\n        self.set_last_four_bits(frame, SWING_HORIZONTAL,\n                                self.state.swing_horizontal)\n        self.set_last_four_bits(frame, SWING_VERTICAL,\n                                self.state.swing_vertical)\n\n        # Timer Delay - complicated encoding\n        # Timer ON sets duration at 0x0a and 0x0b\n        # Timer OFF sets duration at 0x0b and 0x0c\n        frame[TIMER_A] = 0x00\n        frame[TIMER_B] = 0x00\n        frame[TIMER_C] = 0x00\n\n        if self.state.timer is None:\n            frame[TIMER_B] = 0x06\n            frame[TIMER_C] = 0x60\n\n        frame[TIMER_B] = frame[TIMER_B] | 0x06\n        frame[TIMER_C] = frame[TIMER_C] | 0x60\n\n        if self.state.timer == TIMER_MODE.SET_OFF:\n            mins = self.state.timer_duration * 60\n            if mins > 0xff:\n                frame[TIMER_C] = mins >> 8\n                frame[TIMER_B] = mins & 0xff\n            else:\n                frame[TIMER_C] = mins >> 4\n                frame[TIMER_B] = frame[TIMER_B] | (mins & 0x0f) << 4\n        elif self.state.timer == TIMER_MODE.SET_ON:\n            mins = state.timer_duration * 60\n            frame[TIMER_A] = mins & 0xff\n            frame[TIMER_B] = (mins >> 8) & 0xff\n\n        # Powerful\n        if self.state.powerful:\n            frame[POWERFUL] = 0x01\n\n        if self.state.economy:\n            frame[ECONOMY] = frame[ECONOMY] | 0x04\n\n        # Checksum\n        frame[CHECKSUM] = self.checksum(frame)\n\n        return frame\n\n    def generate_message(self):\n        pass\n        # for each section in frame_one:\n        #     turn on section times\n",
+			"file": "src/DaikinState.py",
+			"file_size": 5540,
+			"file_write_time": 131791352128965318,
+			"settings":
+			{
+				"buffer_size": 5616,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/danny/dev/repos/daikin-remote/lirc-encode.js",
+			"settings":
+			{
+				"buffer_size": 3179,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "from unittest import TestCase\nfrom DaikinState import DaikinController, DaikinState\n\n\ndef get_hex(frame):\n    return [hex(field) for field in frame]\n\n\ndef skip_header_and_checksum(frame):\n    return frame[4:][:-1]\n\n\nclass TestTools(TestCase):\n    def test_skip(self):\n        frame = [0, 1, 2, 3, 4, 5, 6, 7]\n        expected = [4, 5, 6]\n        self.assertEqual(skip_header_and_checksum(frame), expected)\n\n\nclass TestDaikinController(TestCase):\n    def setUp(self):\n        self.controller = DaikinController()\n\n    def assertFrame(self, expected, frame):\n        trimmed = skip_header_and_checksum(frame)\n        hexed = get_hex(trimmed)\n        self.assertEqual(expected, hexed)\n\n    def test_frame_one_comfort_off(self):\n\n        expected = [\n            '0xc5',\n            '0x0',\n            '0x0',\n        ]\n        self.assertFrame(expected, self.controller.frame_one)\n\n    def test_frame_one_comfort_on(self):\n        self.controller.state.comfort = True\n        expected = [\n            '0xc5',\n            '0x0',\n            '0x10',\n        ]\n        self.assertFrame(expected, self.controller.frame_one)\n\n    def test_frame_two(self):\n        expected = ['0x42', '0x0', '0x0']\n        self.assertFrame(expected, self.controller.frame_two)\n\n    def test_frame_three(self):\n        expected = [\n            '0x0',\n            '0x8',\n            '0x28',\n            '0x0',\n            '0xa0',\n            '0x0',\n            '0x0',\n            '0x6',\n            '0x60',\n            '0x0',\n            '0x0',\n            '0xc1',\n            '0x80',\n            '0x0'\n        ]\n        self.assertFrame(expected, self.controller.frame_three)\n",
+			"file": "src/test_state.py",
+			"file_size": 1505,
+			"file_write_time": 131791352772964823,
+			"settings":
+			{
+				"buffer_size": 1649,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 600.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"yap",
+				"PyYapf: Format Document"
+			],
+			[
+				"set m",
+				"Set Syntax: Markdown"
+			],
+			[
+				"markdo",
+				"Set Syntax: Markdown"
+			],
+			[
+				"rust",
+				"Rust: Create New Cargo Build Variant"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"prett",
+				"JsPrettier: Format Code"
+			],
+			[
+				"pretty",
+				"Pretty JSON: Format (Pretty Print) JSON"
+			],
+			[
+				"prety",
+				"Pretty JSON: Format (Pretty Print) JSON"
+			],
+			[
+				"blame",
+				"Git: Blame"
+			],
+			[
+				"blam",
+				"Git: Blame"
+			],
+			[
+				"diff",
+				"Git: Diff Current File"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"test",
+				"Anaconda: Run Current Test"
+			],
+			[
+				"python",
+				"PythonTest: Run selected tests"
+			],
+			[
+				"sublimelin",
+				"Preferences: SublimeLinter Settings"
+			],
+			[
+				"install ",
+				"Package Control: Install Package"
+			],
+			[
+				"sublimelinter",
+				"Preferences: SublimeLinter Settings"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"bla",
+				"Git: Blame"
+			],
+			[
+				"remov",
+				"Package Control: Remove Package"
+			],
+			[
+				"preserv",
+				"MultiEditUtils: Preserve Case"
+			],
+			[
+				"dif",
+				"Git: Diff Current File"
+			],
+			[
+				"pret",
+				"Preferences: JsPrettier Settings - User"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"preser",
+				"MultiEditUtils: Preserve Case"
+			],
+			[
+				"bl",
+				"Git: Blame"
+			],
+			[
+				"sql",
+				"SQL Beautifier: Format Current SQL File"
+			],
+			[
+				"git checkout",
+				"Git: Checkout Current File"
+			],
+			[
+				"git che",
+				"Git: Checkout Tag"
+			],
+			[
+				"ana",
+				"Anaconda: Disable linting on this file"
+			],
+			[
+				"dis",
+				"SublimeLinter: Disable Linter"
+			],
+			[
+				"git",
+				"Git: Log All"
+			],
+			[
+				"histor",
+				"Git: Commit history"
+			],
+			[
+				"lint",
+				"SublimeLinter: Toggle Linter"
+			],
+			[
+				"flow",
+				"FlowType: Check Contents"
+			],
+			[
+				"anac",
+				"Anaconda: Disable linting on this file"
+			],
+			[
+				"disable",
+				"SublimeLinter: Disable Linter"
+			],
+			[
+				"jsonpretty",
+				"Pretty JSON: Format (Pretty Print) JSON"
+			],
+			[
+				"json",
+				"Pretty JSON: Format (Pretty Print) JSON"
+			],
+			[
+				"undo",
+				"Sublundo: Visualize"
+			],
+			[
+				"yaml",
+				"Set Syntax: YAML"
+			],
+			[
+				"sets cl",
+				"Set Syntax: CloudFormation"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"subl",
+				"Sublundo: Visualize"
+			],
+			[
+				"visu",
+				"Sublundo: Visualize"
+			],
+			[
+				"prese",
+				"MultiEditUtils: Preserve Case"
+			],
+			[
+				"pretr",
+				"Pretty JSON: Format and Sort JSON"
+			],
+			[
+				"scheme",
+				"UI: Select Color Scheme"
+			],
+			[
+				"schem",
+				"UI: Select Color Scheme"
+			],
+			[
+				"theme",
+				"UI: Select Theme"
+			],
+			[
+				"",
+				"About"
+			]
+		],
+		"width": 864.0
+	},
+	"console":
+	{
+		"height": 448.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/home/danny/dev/repos/daikin-remote",
+		"/home/danny/dev/repos/Daikin-IR-Reverse",
+		"/home/danny/dev/repos/Daikin-IR-Reverse/DaikinLibrary",
+		"/home/danny/dev/repos/Daikin-IR-Reverse/DaikinLibrary/src",
+		"/home/danny/dev/repos/Daikin-IR-Reverse/DaikinLibrary/src/com",
+		"/home/danny/dev/repos/Daikin-IR-Reverse/DaikinLibrary/src/com/lafois",
+		"/home/danny/dev/repos/Daikin-IR-Reverse/DaikinLibrary/src/com/lafois/domo",
+		"/home/danny/dev/repos/Daikin-IR-Reverse/DaikinLibrary/src/com/lafois/domo/daikin",
+		"/home/danny/dev/repos/daiken-pi",
+		"/home/danny/dev/repos/daiken-pi/src"
+	],
+	"file_history":
+	[
+		"/home/danny/dev/daily/data/ws-2018-08-13/timesheet.csv",
+		"/home/danny/.aws/config",
+		"/home/danny/dev/daily/projects/10%/ideas/support/login-activation-low-hanging-fruit",
+		"/home/danny/dev/daily/data/ws-2018-08-13/url_schema",
+		"/home/danny/Dropbox/personal/documents/Life Update",
+		"/home/danny/Dropbox/personal/projects/archive/bigmobile/feoe/jsProposition",
+		"/home/danny/dev/daily/data/ws-2018-07-30/timesheet.csv",
+		"/home/danny/dev/daily/data/ws-2018-07-30/annual-review.md",
+		"/home/danny/dev/daily/data/ws-2018-07-30/url-schema.md",
+		"/home/danny/dev/daily/projects/10%/ideas/support/login-screens-writeup",
+		"/home/danny/dev/daily/projects/personal/goals",
+		"/home/danny/dev/daily/data/ws-2018-07-23/ReviewingChecklistItem.jsx",
+		"/home/danny/dev/daily/projects/10%/ideas/tech/webpack_upgrade/readme.md",
+		"/home/danny/dev/daily/projects/growth/team-structure",
+		"/home/danny/dev/daily/data/ws-2018-08-06/monday",
+		"/home/danny/dev/daily/data/ws-2018-08-13/remove-deps/readme.md",
+		"/home/danny/dev/daily/data/ws-2018-08-06/1on1",
+		"/home/danny/dev/daily/data/ws-2018-07-30/1on1",
+		"/home/danny/dev/daily/data/ws-2018-08-06/timesheet.csv",
+		"/home/danny/dev/daily/data/ws-2018-08-06/webpack-tuning.md",
+		"/home/danny/dev/daily/data/ws-2018-07-30/b",
+		"/home/danny/dev/daily/data/ws-2018-07-30/missue",
+		"/home/danny/dev/daily/data/ws-2018-07-23/david-video.md",
+		"/home/danny/dev/daily/life/mixing/ibitha-prom",
+		"/home/danny/dev/daily/data/ws-2018-07-23/rex-docs.md",
+		"/home/danny/dev/daily/projects/10%/ideas/tech/dependency-audits/dependency-audit",
+		"/home/danny/dev/daily/src/index.js",
+		"/home/danny/dev/daily/src/.env",
+		"/home/danny/dev/daily/src/week.js",
+		"/home/danny/dev/daily/data/ws-2018-07-16/timesheet.csv",
+		"/home/danny/dev/daily/data/ws-2018-07-23/timesheet.csv",
+		"/home/danny/dev/daily/projects/growth/why-how-what",
+		"/home/danny/dev/daily/projects/10%/ideas/tech/webpack-4/readme.md",
+		"/home/danny/dev/daily/life/delica/new-awning",
+		"/home/danny/dev/daily/daily/src/main.rs",
+		"/home/danny/dev/daily/daily/Cargo.toml",
+		"/home/danny/dev/daily/data/ws-2018-07-09/scaling",
+		"/home/danny/dev/daily/data/ws-2018-07-16/zendesk/zendesk.py",
+		"/home/danny/dev/daily/life/admin/payments",
+		"/home/danny/dev/daily/data/ws-2018-07-16/cypress",
+		"/home/danny/dev/daily/projects/10%/ideas/tech/index-subtitles-for-search",
+		"/home/danny/dev/daily/data/ws-2018-07-16/2018-07-20",
+		"/home/danny/dev/daily/projects/10%/ideas/support/pauls-boutique-of-macros",
+		"/home/danny/dev/daily/projects/10%/ideas/recognition-application",
+		"/home/danny/dev/daily/projects/10%/ideas/slack-full-integration",
+		"/home/danny/dev/daily/projects/10%/ideas/ret/transpiled-javascript-for-sheets",
+		"/home/danny/dev/daily/projects/10%/ideas/holistic-teacher-ux",
+		"/home/danny/dev/daily/projects/10%/ideas/unified-internal-docs",
+		"/home/danny/dev/daily/data/ws-2018-07-09/1on1",
+		"/home/danny/dev/daily/projects/10%/ideas/unified-spreadsheet-creation",
+		"/home/danny/dev/daily/projects/10%/ideas/app/notifications-prototype",
+		"/home/danny/dev/daily/projects/10%/ideas/ret/exam-editor",
+		"/home/danny/dev/daily/projects/10%/ideas/tech/visual-regression/readme.md",
+		"/home/danny/dev/daily/projects/10%/ideas/edrolo-alpha-program",
+		"/home/danny/dev/daily/projects/10%/ideas/ret/qa-mode-for-exams",
+		"/home/danny/dev/daily/projects/10%/ideas/support/names-to-profile-ids",
+		"/home/danny/dev/daily/projects/10%/ideas/support/chrome-extensions",
+		"/home/danny/dev/daily/projects/10%/ideas/sales-lias/podio-integrations/mark",
+		"/home/danny/dev/daily/projects/10%/ideas/sales-lias/podio-integrations/hannah",
+		"/home/danny/dev/daily/projects/10%/ideas/sales-lias/joyride",
+		"/home/danny/dev/daily/projects/10%/ideas/resources",
+		"/home/danny/dev/daily/data/ws-2018-07-16/github-bookmarklet-release.js",
+		"/home/danny/dev/daily/projects/10%/ideas/support/data",
+		"/home/danny/dev/daily/data/ws-2018-07-16/zendesk/test.json",
+		"/home/danny/dev/daily/data/ws-2018-07-02/timesheet.csv",
+		"/home/danny/dev/daily/data/ws-2018-07-09/timesheet.csv",
+		"/home/danny/dev/daily/data/ws-2018-07-09/exam-editor",
+		"/home/danny/dev/daily/data/ws-2018-07-09/saturday",
+		"/home/danny/dev/daily/data/ws-2018-07-09/10%projects",
+		"/home/danny/dev/tmp/data/ws-2018-07-09/1on1",
+		"/home/danny/dev/tmp/data-bak/ws-2018-06-25/2018-09-28.md",
+		"/home/danny/dev/tmp/src/tally.spec.js",
+		"/home/danny/dev/tmp/src/index.js",
+		"/home/danny/dev/tmp/.prettierrc",
+		"/home/danny/dev/tmp/src/week.js",
+		"/home/danny/dev/tmp/src/tally.js",
+		"/home/danny/dev/tmp/data-bak/ws-2018-07-02/sprintplanning/readme.md",
+		"/home/danny/dev/tmp/data-bak/ws-2018-07-02/webpack_upgrade/readme.md",
+		"/home/danny/dev/tmp/data-bak/ws-2018-07-02/2018-07-04.md",
+		"/home/danny/dev/tmp/data-bak/ws-2018-07-02/teacher_index/readme.md",
+		"/home/danny/dev/tmp/data-bak/ws-2018-07-02/timesheet.csv",
+		"/home/danny/dev/tmp/archive/2018-06/27/daily",
+		"/home/danny/dev/tmp/data-bak/ws-2018-06-25/timesheet.csv",
+		"/home/danny/.config/sublime-text-3/Packages/User/JsPrettier.sublime-settings",
+		"/home/danny/dev/edrolo/edrolo/tod_project/tod_django/react/src/edrolo/components/exams/marking/SelfMarkedAverage.jsx",
+		"/home/danny/dev/edrolo/edrolo/tod_project/tod_django/react/src/edrolo/components/exams/marking/TeacherMarkedAverage.jsx",
+		"/home/danny/dev/edrolo/edrolo/tod_project/tod_django/exams/models.py",
+		"/home/danny/dev/edrolo/edrolo/tod_project/tod_django/tod/models/branch.py",
+		"/home/danny/dev/tmp/2018-06-12-exam-types",
+		"/home/danny/dev/tmp/2018-06-23-exam_types",
+		"/home/danny/dev/edrolo/edrolo/tod_project/tod_django/react/src/edrolo/domains/video/components/WistiaPlayer/WistiaPlayer.jsx",
+		"/home/danny/dev/tmp/2018-05-30-10%time-WistiaPlayerUpgrades2.0",
+		"/home/danny/dev/edrolo/edrolo/tod_project/tod_django/react/src/edrolo/components/exams/marking/QuestionDetails.jsx",
+		"/home/danny/dev/edrolo/edrolo/tod_project/tod_django/react/src/edrolo/components/exams/SolutionModal.jsx",
+		"/home/danny/dev/edrolo/edrolo/tod_project/tod_django/api/serializers/tod.py",
+		"/home/danny/dev/edrolo/edrolo/tod_project/tod_django/tod/admin.py",
+		"/home/danny/dev/edrolo/edrolo/.buildkite/run-all-tests",
+		"/home/danny/dev/edrolo/edrolo/tod_project/tod_django/react/src/edrolo/components/exams/solutions/ExamSolutionFeedback.jsx",
+		"/home/danny/dev/edrolo/edrolo/tod_project/tod_django/react/src/edrolo/components/exams/marking/EditTeacherFeedback.jsx",
+		"/home/danny/dev/edrolo/edrolo/tod_project/tod_django/react/src/edrolo/components/exams/grid/TeacherMarkingSummary.jsx",
+		"/home/danny/dev/edrolo/edrolo/tod_project/tod_django/react/src/edrolo/components/exams/entry.js",
+		"/home/danny/dev/edrolo/edrolo/tod_project/tod_django/react/src/edrolo/components/exams/marking/ExamMarking.jsx",
+		"/home/danny/Downloads/Payment Portal 2018 Batch 2 to Tech.csv",
+		"/home/danny/dev/edrolo/edrolo/tod_project/tod_django/payments/scripts/settle_pre_2018_legacy_payments.py",
+		"/home/danny/dev/edrolo/edrolo/tod_project/tod_django/react/src/edrolo/components/exams/complex_response/inline_sketchpad/SketchTools.jsx",
+		"/home/danny/dev/edrolo/edrolo/tod_project/tod_django/react/src/edrolo/components/exams/complex_response/SketchpadInline.jsx",
+		"/home/danny/Downloads/Payment Portal 2018 Batch 8 send to tech.csv",
+		"/home/danny/dev/edrolo/edrolo/tod_project/tod_django/react/src/edrolo/components/exams/marking/Question.jsx",
+		"/home/danny/dev/edrolo/edrolo/tod_project/tod_django/react/src/edrolo/components/exams/marking/Responses.jsx",
+		"/home/danny/dev/edrolo/edrolo/tod_project/tod_django/react/src/edrolo/components/exams/marking/ResponseRow.jsx",
+		"/home/danny/dev/edrolo/edrolo/tod_project/tod_django/tod/migrations/0068_add_set_intro_permission.py",
+		"/home/danny/dev/edrolo/edrolo/tod_project/tod_django/tod/tests/test_lessons.py",
+		"/home/danny/dev/edrolo/edrolo/tod_project/tod_django/react/package.json",
+		"/home/danny/dev/edrolo/edrolo/tod_project/tod_django/react/yarn.lock",
+		"/home/danny/dev/edrolo/edrolo/tod_project/enrolinator/services/profile_reconciliation.py",
+		"/home/danny/dev/edrolo/edrolo/tod_project/enrolinator/utils.py",
+		"/home/danny/dev/edrolo/edrolo/tod_project/tod_django/react/src/edrolo/domains/exams/components/lessonquestions/MultiChoiceLessonQuestion/MultiChoiceLessonQuestion.jsx",
+		"/home/danny/dev/edrolo/edrolo/tod_project/tod_django/react/src/edrolo/domains/exams/components/common/QuestionSolution/QuestionSolution.jsx",
+		"/home/danny/dev/edrolo/edrolo/tod_project/tod_django/react/src/edrolo/components/exams/solutions/ExamSolutionPanel.jsx",
+		"/home/danny/dev/edrolo/edrolo/tod_project/tod_django/react/src/edrolo/components/lesson/Chunk.jsx",
+		"/home/danny/dev/tmp/2018-06-22-intro-pr",
+		"/home/danny/dev/edrolo/edrolo/tod_project/tod_django/react/src/edrolo/components/exams/marking/QuestionSummary.jsx",
+		"/home/danny/dev/edrolo/edrolo/tod_project/tod_django/exams/serializers/responses.py",
+		"/home/danny/dev/edrolo/edrolo/tod_project/tod_django/react/cypress/integration/exam-user-experience.spec.js",
+		"/home/danny/dev/edrolo/edrolo/tod_project/tod_django/course/migrations/0003_auto_20180625_1046.py",
+		"/home/danny/dev/edrolo/edrolo/tod_project/tod_django/react/webpack/base.babel.js",
+		"/home/danny/dev/tmp/2018-05-30-10%time",
+		"/home/danny/dev/tmp/2018-06-22-bish-tunes"
+	],
+	"find":
+	{
+		"height": 80.5882352941
+	},
+	"find_in_files":
+	{
+		"height": 243.529411765,
+		"where_history":
+		[
+			"/home/danny/Dropbox/personal",
+			"/home/danny/dev/daily/src",
+			"/home/danny/dev/tmp/src",
+			"/home/danny/dev/edrolo/edrolo/tod_project/tod_django/react/src/",
+			"/home/danny/dev/edrolo/edrolo/tod_project, *.py",
+			"/home/danny/dev/edrolo/edrolo/tod_project/tod_django/react/src/",
+			"/home/danny/dev/edrolo/edrolo/tod_project, *.py",
+			"/home/danny/dev/edrolo/edrolo/tod_project/tod_django/react/src/",
+			"/home/danny/dev/edrolo/edrolo/tod_project, *.py",
+			"/home/danny/dev/edrolo/edrolo/tod_project/tod_django/react/src/",
+			"/home/danny/dev/edrolo/edrolo/tod_project, *.py",
+			"/home/danny/dev/edrolo/edrolo/tod_project/tod_django/react/src/",
+			"/home/danny/dev/edrolo/edrolo/tod_project, *.py",
+			"/home/danny/dev/edrolo/edrolo/tod_project/tod_django/react/src/edrolo/domains/exams",
+			"/home/danny/dev/edrolo/edrolo/tod_project/tod_django/react/src/",
+			"/home/danny/dev/edrolo/edrolo/tod_project/tod_django/react/src/edrolo/domains/exams",
+			"/home/danny/dev/edrolo/edrolo/tod_project, *.py",
+			"/home/danny/dev/edrolo/edrolo/tod_project/tod_django/react/src/edrolo/domains/exams",
+			"/home/danny/dev/edrolo/edrolo/tod_project/tod_django/react/src/edrolo/domains/exams/components/lessonquestions",
+			"/home/danny/dev/edrolo/edrolo/tod_project, *.py",
+			"/home/danny/dev/edrolo/edrolo/tod_project/tod_django/react/src/",
+			"/home/danny/dev/edrolo/edrolo/tod_project, *.py",
+			"/home/danny/dev/edrolo/edrolo/tod_project/tod_django/react/src/",
+			"/home/danny/dev/edrolo/edrolo/tod_project, *.py",
+			"/home/danny/dev/edrolo/edrolo/tod_project/tod_django/react/src/",
+			"/home/danny/dev/edrolo/edrolo/tod_project, *.py",
+			"/home/danny/dev/edrolo/edrolo/tod_project/tod_django/react/src/",
+			"/home/danny/dev/edrolo/edrolo/tod_project, *.py",
+			"/home/danny/dev/edrolo/edrolo/tod_project/tod_django/react/src/",
+			"/home/danny/dev/edrolo/edrolo/tod_project, *.py",
+			"/home/danny/dev/edrolo/edrolo/, *.py",
+			"/home/danny/dev/edrolo/edrolo/tod_project/tod_django/exams",
+			"/home/danny/dev/edrolo/edrolo/tod_project/tod_django/react/src/edrolo/domains/exams/",
+			"/home/danny/dev/edrolo/edrolo/tod_project/tod_django/exams",
+			"/home/danny/dev/edrolo/edrolo/tod_project/tod_django/react/src/edrolo/domains/exams/",
+			"/home/danny/dev/edrolo/edrolo/tod_project/tod_django/exams",
+			"/home/danny/dev/edrolo/edrolo/tod_project/tod_django/react/src/",
+			"/home/danny/dev/edrolo/edrolo/tod_project/tod_django/react/src/edrolo/domains/exams/",
+			"/home/danny/dev/edrolo/edrolo/, *.py",
+			"/home/danny/dev/edrolo/edrolo/tod_project/tod_django/react/src/edrolo/domains/exams/",
+			"/home/danny/dev/edrolo/edrolo/tod_project/tod_django/react/src/",
+			"/home/danny/dev/edrolo/edrolo/, *.py",
+			"/home/danny/dev/edrolo/edrolo/tod_project/tod_django/react/src/",
+			"/home/danny/dev/edrolo/edrolo/tod_project/tod_django/react/src/edrolo/domains/exams/components/lessonquestions",
+			"/home/danny/dev/edrolo/edrolo/tod_project/tod_django/react/src",
+			"/home/danny/dev/edrolo/edrolo/tod_project/tod_django/react/src/edrolo/domains/exams/components/lessonquestions",
+			"/home/danny/dev/edrolo/edrolo/tod_project/",
+			"/home/danny/dev/edrolo/edrolo/tod_project/tod_django/react/",
+			"/home/danny/dev/edrolo/edrolo/tod_project/",
+			"/home/danny/dev/edrolo/edrolo/tod_project/tod_django/react/src/admin/domains/examQuestion",
+			"/home/danny/dev/edrolo/edrolo/tod_project/tod_django/react/",
+			"/home/danny/dev/edrolo/edrolo/, *.py",
+			"/home/danny/dev/edrolo/edrolo/tod_project/tod_django/react/",
+			"/home/danny/dev/edrolo/edrolo/tod_project/tod_django/react/src/",
+			"/home/danny/dev/edrolo/edrolo/tod_project/tod_django/static",
+			"/home/danny/dev/edrolo/edrolo/tod_project/tod_django/react/src/",
+			"/home/danny/dev/edrolo/edrolo/tod_project/tod_django/react/src/admin/domains/examQuestion/",
+			"/home/danny/dev/edrolo/edrolo/tod_project/tod_django/react/src/admin/domains/examQuestion/components/Question",
+			"/home/danny/dev/edrolo/edrolo/tod_project/tod_django/react/src/admin",
+			"/home/danny/dev/edrolo/edrolo/tod_project/tod_django/react/src/admin/domains/examQuestion",
+			"/home/danny/dev/edrolo/edrolo/tod_project/tod_django/react/src/admin/domains/examQuestion/components/Question",
+			"/home/danny/dev/edrolo/edrolo/tod_project/tod_django/react/src/admin/domains/examQuestion",
+			"/home/danny/dev/edrolo/edrolo/tod_project/tod_django/react/src",
+			"/home/danny/dev/edrolo/edrolo/, *.py",
+			"/home/danny/dev/edrolo/edrolo/tod_project/tod_django/react/src/admin/components/exams",
+			"/home/danny/dev/edrolo/edrolo/, *.py",
+			"/home/danny/dev/edrolo/edrolo/tod_project/tod_django/payments/tests",
+			"/home/danny/dev/edrolo/edrolo/, *.py",
+			"/home/danny/dev/edrolo/edrolo/tod_project/tod_django/react/src",
+			"/home/danny/dev/edrolo/edrolo/, *.py",
+			"/home/danny/dev/edrolo/edrolo/, test_*.py",
+			"/home/danny/dev/edrolo/edrolo/, *.py",
+			"/home/danny/dev/edrolo/edrolo/, test_*.py",
+			"/home/danny/dev/edrolo/edrolo/, *.py, test_*.py",
+			"/home/danny/dev/edrolo/edrolo/, *.py",
+			"/home/danny/dev/edrolo/edrolo/tod_project/tod_django/react/src",
+			"/home/danny/dev/edrolo/edrolo/, *.py",
+			"/home/danny/dev/edrolo/edrolo/tod_project/tod_django/react/src",
+			"/home/danny/dev/edrolo/edrolo/, *.py",
+			"/home/danny/dev/edrolo/edrolo/, *.py, -test_*.py",
+			"/home/danny/dev/edrolo/edrolo/tod_project/tod_django/react/src",
+			"/home/danny/dev/edrolo/edrolo/, *.py, -test_*.py",
+			"/home/danny/dev/edrolo/edrolo/",
+			"/home/danny/dev/edrolo/edrolo/tod_project/tod_django/react/src",
+			"/home/danny/dev/edrolo/edrolo/, *.py, -test_*.py",
+			"/home/danny/dev/edrolo/edrolo/tod_project/tod_django/react/src",
+			"/home/danny/dev/edrolo/edrolo/, *.py, -test_*.py",
+			"/home/danny/dev/edrolo/edrolo/tod_project/tod_django/react/src",
+			"/home/danny/dev/edrolo/edrolo/, *.py, -test_*.py",
+			"/home/danny/dev/edrolo/edrolo/tod_project/tod_django/react/src",
+			"/home/danny/dev/edrolo/edrolo/, *.py, -test_*.py",
+			"/home/danny/dev/edrolo/edrolo/tod_project/tod_django/react/src",
+			"/home/danny/dev/edrolo/edrolo/tod_project/tod_django/react/src/admin/domains/course",
+			"/home/danny/dev/edrolo/edrolo/, *.py, -test_*.py",
+			"/home/danny/dev/edrolo/edrolo/tod_project/tod_django/react/src/admin/domains/course",
+			"/home/danny/dev/edrolo/edrolo/, *.py, -test_*.py",
+			"/home/danny/dev/edrolo/edrolo/tod_project/tod_django/react/src",
+			"/home/danny/dev/edrolo/edrolo/, *.py, -test_*.py",
+			"/home/danny/dev/edrolo/edrolo/tod_project/tod_django/react/src",
+			"/home/danny/dev/edrolo/edrolo/, *.py, -test_*.py",
+			"/home/danny/dev/edrolo/edrolo/tod_project/tod_django/react/src",
+			"/home/danny/dev/edrolo/edrolo/, *.py, -test_*.py",
+			"/home/danny/dev/edrolo/edrolo/tod_project/tod_django/react/src",
+			"/home/danny/dev/edrolo/edrolo/, *.py, -test_*.py",
+			"/home/danny/dev/edrolo/edrolo/tod_project/tod_django/react/src",
+			"/home/danny/dev/edrolo/edrolo/, *.py, -test_*.py",
+			"/home/danny/dev/edrolo/edrolo/, *.py",
+			"/home/danny/dev/edrolo/edrolo/tod_project/tod_django/react/src",
+			"/home/danny/dev/edrolo/edrolo/, *.py",
+			"/home/danny/dev/edrolo/edrolo/tod_project/tod_django/react/src",
+			"/home/danny/dev/edrolo/edrolo/, *.py",
+			"/home/danny/dev/edrolo/edrolo/tod_project/tod_django/react/src",
+			"/home/danny/dev/edrolo/edrolo/, *.py",
+			"/home/danny/dev/edrolo/edrolo/tod_project/tod_django/react/src",
+			"/home/danny/dev/edrolo/edrolo/, *.py",
+			"/home/danny/dev/edrolo/edrolo/tod_project/tod_django/react/src",
+			"/home/danny/dev/edrolo/edrolo/, *.py",
+			"/home/danny/dev/edrolo/edrolo/, *.py, -test_*.py",
+			"/home/danny/dev/edrolo/edrolo/, *.py",
+			"/home/danny/dev/edrolo/edrolo/",
+			"/home/danny/dev/edrolo/edrolo/, *.py",
+			"/home/danny/dev/edrolo/edrolo/",
+			"/home/danny/dev/edrolo/edrolo/, *.py",
+			"/home/danny/dev/edrolo/edrolo/tod_project/tod_django/react/src",
+			"/home/danny/dev/edrolo/edrolo/, *.py",
+			"/home/danny/dev/edrolo/edrolo/analytics/src/",
+			"/home/danny/.virtualenvs/edrolo3/lib/python3.6/site-packages/mptt",
+			"/home/danny/dev/edrolo/edrolo/, *.py"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+			"E   +  ",
+			"set_first_four_bits",
+			"AC_MODE",
+			"d7",
+			"checksum",
+			"0x10",
+			"0x0c",
+			"0x0b",
+			"durMin",
+			"FAN_SPEED",
+			"8",
+			"state.temp ",
+			"mpt",
+			"Three",
+			"frameIdx",
+			"mod_bytes_4to8",
+			"current",
+			"frame[idx]",
+			"mode_power_timers",
+			"frame[5]",
+			"FRAME_INDEX",
+			"frame[4]",
+			"this.",
+			"unitState",
+			"compo",
+			"# boolean",
+			"this.",
+			"private",
+			"power",
+			"developer",
+			"getLessonChunks",
+			"\\.zip",
+			"<course>",
+			"<subject>",
+			"<curriculum>",
+			"-> `",
+			"school_class_id",
+			"We're working hard",
+			"getTimesheet",
+			"const",
+			"var",
+			"PRmerges",
+			"const",
+			"console",
+			"completed_reflection",
+			"getTimesheet",
+			",,\n",
+			"determineWeek",
+			"ensureExists",
+			"calculateHours",
+			"handleSketchAction",
+			"onSketchAction",
+			"handleSketchClear",
+			"Merge pull request",
+			"Merge branch",
+			"sittings",
+			"submission",
+			"sitting",
+			"class-exam-marking-question",
+			"exams/marking/Question",
+			"<Question",
+			"<Responses",
+			"Responses",
+			"submission",
+			"sitting",
+			"ResponseRow",
+			"submission",
+			"sitting",
+			"submission",
+			"EditTeacherFeedback",
+			"ExamTeacherFeedback",
+			"EditTeacherFeedback",
+			"this.props",
+			"comment",
+			"marks_from_teacher",
+			"\\$\\.",
+			"$",
+			"TeacherMarkedAverage",
+			"resolved_intro_wistia_hash()",
+			"resolved_intro_wistia_hash",
+			"resolve_intro_wistia_hash",
+			"get_fieldsets",
+			"BranchAdmin",
+			"fabric",
+			"jsdom",
+			"contextify",
+			"jsdom",
+			"context",
+			"jsdom",
+			"_find_target_by_full_name",
+			"wistiaEmbed",
+			"handleWistiaLoaded",
+			"video.",
+			"getHashedId",
+			"applyGeneralSettingsAndHooks",
+			"handleWistiaLoaded",
+			"setPlaybackVolume",
+			"onMainVideoReady",
+			"hasIntro",
+			"getWistiaProperties",
+			"getWistiaQueue",
+			"handleVolumeChange",
+			"container",
+			"getContainerId",
+			"embedVideo()",
+			"video",
+			"QuestionSolution",
+			"WistiaPlayer",
+			"video.",
+			".get(",
+			".get",
+			"WistiaPlayer",
+			"this.props",
+			"height",
+			"this.props.height",
+			"this.props.",
+			"this.props",
+			"properties",
+			"scriptLoading",
+			"?utm_source=xweekly&utm_medium=xweekly&utm_campaign=xweekly",
+			"tel",
+			"get_next",
+			"get_prev",
+			"global.window._wq",
+			"getWistiaQueue",
+			"idSuffix",
+			"addVideoElement",
+			"getWistiaQueue"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": true,
+		"regex": true,
+		"replace_history":
+		[
+			"resolved_intro_wistia_hash",
+			"introWistiaHash",
+			"checklistReflections",
+			"$1$2s$3",
+			"$1",
+			"\\\\\",\\n",
+			"StudentGrokked",
+			"replaceQuestion",
+			".replaceQuestion",
+			"REPLACE_QUESTION",
+			".replaceQuestion",
+			".setQuestion",
+			"applyWistiaVideosToQuestions",
+			"checklist_reflection",
+			"ExemplarResponseChecklistItemReflection",
+			"ExamSittingSummarySerializer",
+			"TextExamResponseWithChecklist",
+			"$1",
+			"type",
+			"'type__name': Branch.TYPES.CURRICULUM",
+			"'type__name': Branch.TYPES.LESSON",
+			"'type__name': Branch.TYPES.COURSE",
+			"type__name=Branch.TYPES.SUBJECT",
+			"type__name=Branch.TYPES.CURRICULUM",
+			"type__name=Branch.TYPES.TOPIC",
+			"type__name=Branch.TYPES.LESSON",
+			"type__name=Branch.TYPES.COURSE",
+			"type",
+			"branch__subject__curriculum",
+			"branch__course__subject",
+			"CurriculumFactory",
+			"schoolclass.course",
+			"school_class.course",
+			"takeLatest(",
+			"takeEvery(",
+			"payment_processor",
+			"paymentLinkCode",
+			"'edrolo/$1",
+			"edrolo/domains/payments/components",
+			"'edrolo/domains/payments/components/PurchaseButton'",
+			"FETCH_PROFILE_LEDGER",
+			"update_profile_paid_access_status",
+			"update_profile_paid_access_field",
+			"api:branch-for-select",
+			"UserAdminLink",
+			"$1$2"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 2,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "/home/danny/dev/repos/Daikin-IR-Reverse/DaikinLibrary/src/com/lafois/domo/daikin/DaikinUnitState.java",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2927,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"git_gutter_is_enabled": true,
+							"line_numbers": true,
+							"syntax": "Packages/Java/Java.sublime-syntax",
+							"translate_tabs_to_spaces": false,
+							"vintage_lines.line": -1,
+							"vintage_lines.lines": 166,
+							"vintage_lines.mode": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 6825.29411765,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "src/DaikinState.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5616,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5616,
+								5616
+							]
+						],
+						"settings":
+						{
+							"SL.399.region_keys":
+							[
+								"sublime_linter.protected_regions"
+							],
+							"auto_complete_triggers":
+							[
+								{
+									"characters": ".",
+									"selector": "source.python - string - comment - constant.numeric"
+								},
+								{
+									"characters": ".",
+									"selector": "source.python - string - constant.numeric"
+								}
+							],
+							"git_gutter_is_enabled": true,
+							"line_numbers": true,
+							"syntax": "Packages/Djaneiro/Syntaxes/Python Django.tmLanguage",
+							"translate_tabs_to_spaces": true,
+							"vintage_lines.line": 212,
+							"vintage_lines.lines": 212,
+							"vintage_lines.mode": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 8548.82352941,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/home/danny/dev/repos/daikin-remote/lirc-encode.js",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 3179,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								44,
+								44
+							]
+						],
+						"settings":
+						{
+							"SL.408.region_keys":
+							[
+							],
+							"git_gutter_is_enabled": true,
+							"line_numbers": true,
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true,
+							"vintage_lines.line": -1,
+							"vintage_lines.lines": 105,
+							"vintage_lines.mode": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "src/test_state.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1649,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1323,
+								1323
+							]
+						],
+						"settings":
+						{
+							"SL.406.region_keys":
+							[
+								"sublime_linter.protected_regions"
+							],
+							"auto_complete_triggers":
+							[
+								{
+									"characters": ".",
+									"selector": "source.python - string - comment - constant.numeric"
+								},
+								{
+									"characters": ".",
+									"selector": "source.python - string - constant.numeric"
+								}
+							],
+							"git_gutter_is_enabled": true,
+							"line_numbers": true,
+							"open_with_edit": true,
+							"syntax": "Packages/Djaneiro/Syntaxes/Python Django.tmLanguage",
+							"translate_tabs_to_spaces": true,
+							"vintage_lines.line": -1,
+							"vintage_lines.lines": 68,
+							"vintage_lines.mode": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 2211.76470588,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 60.5882352941
+	},
+	"input":
+	{
+		"height": 91.1764705882
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.SublimeLinter":
+	{
+		"height": 1358.0
+	},
+	"output.SublimeLinter Messages":
+	{
+		"height": 252.0
+	},
+	"output.exec":
+	{
+		"height": 549.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.git":
+	{
+		"height": 186.0
+	},
+	"output.mdpopups":
+	{
+		"height": 0.0
+	},
+	"output.sublundo":
+	{
+		"height": 176.0
+	},
+	"pinned_build_system": "",
+	"project": "untitled.sublime-project",
+	"replace":
+	{
+		"height": 114.117647059
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"login",
+				"projects/10%/ideas/support/login-activation-low-hanging-fruit"
+			],
+			[
+				"webap",
+				"data/ws-2018-08-06/webpack-tuning.md"
+			],
+			[
+				"log",
+				"projects/10%/ideas/support/login-activation-low-hanging-fruit"
+			],
+			[
+				"reviewing",
+				"data/ws-2018-07-23/ReviewingChecklistItem.jsx"
+			],
+			[
+				"webpac",
+				"data/ws-2018-07-02/webpack_upgrade/readme.md"
+			],
+			[
+				"markav",
+				"edrolo/tod_project/tod_django/react/src/edrolo/components/exams/marking/SelfMarkedAverage.jsx"
+			],
+			[
+				"teachermarka",
+				"edrolo/tod_project/tod_django/react/src/edrolo/components/exams/marking/TeacherMarkedAverage.jsx"
+			],
+			[
+				"exa model",
+				"edrolo/tod_project/tod_django/exams/models.py"
+			],
+			[
+				"exam models",
+				"edrolo/tod_project/tod_django/exams/models.py"
+			],
+			[
+				"models branch",
+				"edrolo/tod_project/tod_django/tod/models/branch.py"
+			],
+			[
+				"sketch",
+				"edrolo/tod_project/tod_django/react/src/edrolo/components/exams/complex_response/inline_sketchpad/SketchTools.jsx"
+			],
+			[
+				"payments script",
+				"edrolo/tod_project/tod_django/payments/scripts/settle_pre_2018_legacy_payments.py"
+			],
+			[
+				"exam-",
+				"edrolo/tod_project/tod_django/react/cypress/integration/exam-user-experience.spec.js"
+			],
+			[
+				"EditTeacher",
+				"edrolo/tod_project/tod_django/react/src/edrolo/components/exams/marking/EditTeacherFeedback.jsx"
+			],
+			[
+				"examsolutionfeed",
+				"edrolo/tod_project/tod_django/react/src/edrolo/components/exams/solutions/ExamSolutionFeedback.jsx"
+			],
+			[
+				"selfmarked",
+				"edrolo/tod_project/tod_django/react/src/edrolo/components/exams/marking/SelfMarkedAverage.jsx"
+			],
+			[
+				".buildkite ",
+				"edrolo/.buildkite/run-all-tests"
+			],
+			[
+				"tod model bra",
+				"edrolo/tod_project/tod_django/tod/models/branch.py"
+			],
+			[
+				"0068_auto_20180625_1046",
+				"edrolo/tod_project/tod_django/tod/migrations/0068_auto_20180625_1046.py"
+			],
+			[
+				"0003_auto_20180625_1046",
+				"edrolo/tod_project/tod_django/course/migrations/0003_auto_20180625_1046.py"
+			],
+			[
+				"tod branch",
+				"edrolo/tod_project/tod_django/tod/models/branch.py"
+			],
+			[
+				"webpack/bab",
+				"edrolo/tod_project/tod_django/react/webpack/base.babel.js"
+			],
+			[
+				"package",
+				"edrolo/tod_project/tod_django/react/package.json"
+			],
+			[
+				"wistia",
+				"edrolo/tod_project/tod_django/react/src/edrolo/domains/video/components/WistiaPlayer/WistiaPlayer.jsx"
+			],
+			[
+				"tod migrations intr",
+				"edrolo/tod_project/tod_django/tod/migrations/0067_branch_intro_wistia_hash.py"
+			],
+			[
+				"profiles models",
+				"edrolo/tod_project/tod_django/profiles/models.py"
+			],
+			[
+				"chunkcar",
+				"edrolo/tod_project/tod_django/react/src/edrolo/components/lesson/ChunkCarousel.jsx"
+			],
+			[
+				"chunk.jsx",
+				"edrolo/tod_project/tod_django/react/src/edrolo/components/lesson/Chunk.jsx"
+			],
+			[
+				"chunk.j",
+				"edrolo/tod_project/tod_django/react/src/admin/components/lessons/edit/Chunk.jsx"
+			],
+			[
+				"branc",
+				"edrolo/tod_project/tod_django/tod/models/branch.py"
+			],
+			[
+				"video wist",
+				"edrolo/tod_project/tod_django/templates/flat/video_landing_pages/wistia_playlist_test.html"
+			],
+			[
+				"branch",
+				"edrolo/tod_project/tod_django/tod/models/branch.py"
+			],
+			[
+				"course auto",
+				"edrolo/tod_project/tod_django/course/migrations/0003_auto_20180621_1325.py"
+			],
+			[
+				"tod branc",
+				"edrolo/tod_project/tod_django/tod/models/branch.py"
+			],
+			[
+				"wistiapla",
+				"edrolo/tod_project/tod_django/react/src/edrolo/domains/video/components/WistiaPlayer/WistiaPlayer.jsx"
+			],
+			[
+				"video_landing",
+				"edrolo/tod_project/tod_django/templates/flat/video_landing_pages/wistia_playlist_test.html"
+			],
+			[
+				"urls.p",
+				"edrolo/tod_project/tod_django/urls.py"
+			],
+			[
+				"WistiaPlaer",
+				"edrolo/tod_project/tod_django/react/src/edrolo/domains/video/components/WistiaPlayer/WistiaPlayer.jsx"
+			],
+			[
+				"exam view",
+				"edrolo/tod_project/tod_django/exams/views.py"
+			],
+			[
+				"exam model",
+				"edrolo/tod_project/tod_django/exams/models.py"
+			],
+			[
+				"responses",
+				"edrolo/tod_project/tod_django/exams/serializers/responses.py"
+			],
+			[
+				"serial respon",
+				"edrolo/tod_project/tod_django/exams/serializers/responses.py"
+			],
+			[
+				"exam views",
+				"edrolo/tod_project/tod_django/exams/views.py"
+			],
+			[
+				"exam serialzi",
+				"edrolo/tod_project/tod_django/exams/serializers/responses.py"
+			],
+			[
+				"teachermark",
+				"edrolo/tod_project/tod_django/react/src/edrolo/components/exams/marking/TeacherMark.jsx"
+			],
+			[
+				"serializer response",
+				"edrolo/tod_project/tod_django/exams/serializers/responses.py"
+			],
+			[
+				"teacherm",
+				"edrolo/tod_project/tod_django/react/src/edrolo/components/exams/marking/TeacherMarkedAverage.jsx"
+			],
+			[
+				"selfmark",
+				"edrolo/tod_project/tod_django/react/src/edrolo/components/exams/marking/SelfMarkedAverage.jsx"
+			],
+			[
+				"serializers response",
+				"edrolo/tod_project/tod_django/exams/serializers/responses.py"
+			],
+			[
+				"exam seria",
+				"edrolo/tod_project/tod_django/exams/serializers.py"
+			],
+			[
+				"exam-mus",
+				"edrolo/tod_project/tod_django/react/cypress/integration/exam-mustang-user-experience.spec.js"
+			],
+			[
+				"exam test selectors",
+				"edrolo/tod_project/tod_django/react/src/edrolo/domains/exams/test/selectors.spec.js"
+			],
+			[
+				"exam reducer",
+				"edrolo/tod_project/tod_django/react/src/edrolo/domains/exams/reducer.js"
+			],
+			[
+				"textwith",
+				"edrolo/tod_project/tod_django/react/src/edrolo/domains/exams/components/lessonquestions/TextWithChecklistLessonQuestion/TextWithChecklistLessonQuestion.jsx"
+			],
+			[
+				"test_api",
+				"edrolo/tod_project/tod_django/exams/tests/test_api.py"
+			],
+			[
+				"exams serial ot",
+				"edrolo/tod_project/tod_django/exams/serializers/other.py"
+			],
+			[
+				"exam serializer",
+				"edrolo/tod_project/tod_django/exams/serializers.py"
+			],
+			[
+				"TextWi",
+				"edrolo/tod_project/tod_django/react/src/edrolo/domains/exams/components/lessonquestions/TextWithChecklistLessonQuestion/TextWithChecklistLessonQuestion.jsx"
+			],
+			[
+				"tox",
+				"edrolo/tox.ini"
+			],
+			[
+				"test_profile_reconciliation",
+				"edrolo/tod_project/enrolinator/tests/test_profile_reconciliation.py"
+			],
+			[
+				"apir",
+				"edrolo/tod_project/tod_django/react/src/core/apiRoutes.js"
+			],
+			[
+				"exemplarrespon",
+				"edrolo/tod_project/tod_django/react/src/admin/domains/examQuestion/components/ExemplarResponseEdit/ExemplarResponseEdit.jsx"
+			],
+			[
+				"apiur",
+				"edrolo/tod_project/tod_django/react/src/core/apiRoutes.js"
+			],
+			[
+				"lessonquestions api.js",
+				"edrolo/tod_project/tod_django/react/src/admin/components/lessons/edit/questiontypes/MultiChoiceQuestion.jsx"
+			],
+			[
+				"updatel",
+				"edrolo/tod_project/tod_django/payments/scripts/update_legacy_payments_status.py"
+			],
+			[
+				"integrationstudyplanner.spec",
+				"edrolo/tod_project/tod_django/react/cypress/integration/studyplanner-user-experience.spec.js"
+			],
+			[
+				"load",
+				"edrolo/tod_project/utils/load-test-fixture"
+			],
+			[
+				"entry",
+				"edrolo/tod_project/tod_django/react/src/edrolo/entry.js"
+			],
+			[
+				"lambda",
+				"edrolo/lambdas/serverless.yml"
+			],
+			[
+				"api.spe",
+				"edrolo/tod_project/tod_django/react/src/admin/domains/enrolinator/api.spec.js"
+			],
+			[
+				"teachernotes",
+				"edrolo/tod_project/tod_django/react/src/edrolo/domains/studyplanner/components/TeacherNotes/TeacherNotes.spec.js"
+			],
+			[
+				"Thir",
+				"edrolo/tod_project/tod_django/react/src/edrolo/domains/payments/components/ThirdPartyPayment.spec.js"
+			],
+			[
+				"must",
+				"edrolo/tod_project/tod_django/react/cypress/integration/exam-mustang-user-experience.spec.js"
+			],
+			[
+				"exam urls",
+				"edrolo/tod_project/tod_django/exams/urls.py"
+			],
+			[
+				"standal",
+				"edrolo/tod_project/tod_django/react/src/admin/domains/examQuestion/components/StandaloneExemplarResponseEditor/StandaloneExemplarResponseEditor.jsx"
+			],
+			[
+				"_exams_solution_exemplar_response",
+				"edrolo/tod_project/tod_django/templates/admin/_exams_solution_exemplar_response.html"
+			],
+			[
+				"stand",
+				"edrolo/tod_project/tod_django/react/src/admin/domains/examQuestion/components/StandaloneExemplarResponseEditor/StandaloneExemplarResponseEditor.jsx"
+			],
+			[
+				"local",
+				"edrolo/tod_project/classysettings/local.py"
+			],
+			[
+				"parent",
+				"edrolo/tod_project/tod_django/react/src/admin/domains/examQuestion/components/Question/ParentQuestionForm.jsx"
+			],
+			[
+				"examQuestion sag",
+				"edrolo/tod_project/tod_django/react/src/admin/domains/examQuestion/sagas.js"
+			],
+			[
+				"profile models",
+				"edrolo/tod_project/tod_django/profiles/models.py"
+			],
+			[
+				"admin question",
+				"edrolo/tod_project/tod_django/react/src/admin/domains/examQuestion/components/Question/Question.jsx"
+			],
+			[
+				"question",
+				"edrolo/tod_project/tod_django/react/src/edrolo/components/lesson/Question.jsx"
+			],
+			[
+				"questionfields",
+				"edrolo/tod_project/tod_django/react/src/admin/domains/examQuestion/components/Question/QuestionFields.jsx"
+			],
+			[
+				"utils.js",
+				"edrolo/tod_project/tod_django/react/src/admin/components/exams/utils.js"
+			],
+			[
+				".off",
+				"edrolo/tod_project/tod_django/exams/migrations/0027_migrate_question_types.py.off"
+			],
+			[
+				"prett",
+				"edrolo/tod_project/tod_django/react/.prettierrc"
+			],
+			[
+				"scss",
+				"edrolo/tod_project/tod_django/react/.storybook/style.css"
+			],
+			[
+				"errro",
+				"edrolo/tod_project/tod_django/react/src/edrolo/components/exams/ErrorMessage.jsx"
+			],
+			[
+				"solutionf",
+				"edrolo/tod_project/tod_django/react/src/admin/domains/examQuestion/components/Question/SolutionFields.jsx"
+			],
+			[
+				"ensure",
+				"edrolo/tod_project/tod_django/profiles/scripts/ensure_training_course_enrolments.py"
+			],
+			[
+				"spec.js",
+				"edrolo/tod_project/tod_django/react/src/core/components/Link/Link.spec.js"
+			],
+			[
+				"examquestionst",
+				"edrolo/tod_project/tod_django/react/src/admin/stores/ExamQuestionStore.js"
+			],
+			[
+				"examed",
+				"edrolo/tod_project/tod_django/react/src/admin/components/exams/edit/ExamEdit/ExamEdit.jsx"
+			],
+			[
+				"modal",
+				"edrolo/tod_project/tod_django/react/src/admin/domains/enrolinator/ui/ModalDropdown.jsx"
+			],
+			[
+				"profile model",
+				"edrolo/tod_project/tod_django/profiles/models.py"
+			],
+			[
+				"profile serializ",
+				"edrolo/tod_project/tod_django/api/serializers/profiles.py"
+			],
+			[
+				"tod views",
+				"edrolo/tod_project/tod_django/tod/views.py"
+			],
+			[
+				"payments tasks",
+				"edrolo/tod_project/tod_django/payments/tasks.py"
+			],
+			[
+				"chunkci",
+				"edrolo/tod_project/tod_django/react/src/edrolo/components/chunkview/ChunkviewContainer.jsx"
+			],
+			[
+				"reducer.spec.",
+				"edrolo/tod_project/tod_django/react/src/admin/domains/examQuestion/reducer.spec.js"
+			],
+			[
+				"examquestion reducer",
+				"edrolo/tod_project/tod_django/react/src/admin/domains/examQuestion/reducer.js"
+			],
+			[
+				"edrolo/api",
+				"edrolo/tod_project/tod_django/react/src/edrolo/api.js"
+			],
+			[
+				"payment tasks",
+				"edrolo/tod_project/tod_django/payments/tasks.py"
+			],
+			[
+				"",
+				"edrolo/tod_project/tod_django/exams/models.py"
+			],
+			[
+				"syllab model",
+				"edrolo/tod_project/tod_django/syllabus/models.py"
+			],
+			[
+				"requirements",
+				"edrolo/tod_project/requirements/base.pip"
+			],
+			[
+				"models exam",
+				"edrolo/tod_project/tod_django/exams/migrations/0019_exam_models_add_timestamps.py"
+			],
+			[
+				"exam serializ",
+				"edrolo/tod_project/tod_django/exams/serializers.py"
+			],
+			[
+				"exams admin",
+				"edrolo/tod_project/tod_django/exams/admin.py"
+			],
+			[
+				"core constants",
+				"edrolo/tod_project/tod_django/react/src/core/constants/contentTypes.js"
+			],
+			[
+				"constants",
+				"edrolo/tod_project/tod_django/react/src/edrolo/domains/exams/constants.js"
+			],
+			[
+				"exams test",
+				"edrolo/tod_project/tod_django/api/tests/test_exams.py"
+			],
+			[
+				"chunkview",
+				"edrolo/tod_project/tod_django/react/src/edrolo/components/chunkview/ChunkviewContainer.jsx"
+			],
+			[
+				"exams views",
+				"edrolo/tod_project/tod_django/exams/views.py"
+			],
+			[
+				"global",
+				"edrolo/tod_project/tod_django/react/src/core/utils/globalMathsExtensions.js"
+			],
+			[
+				"PaymentHelp",
+				"edrolo/tod_project/tod_django/react/src/edrolo/utils/PaymentsHelper.js"
+			],
+			[
+				"requirements base.",
+				"edrolo/tod_project/requirements/base.pip"
+			],
+			[
+				"sylabus models",
+				"edrolo/tod_project/tod_django/syllabus/models.py"
+			],
+			[
+				"common decorator",
+				"edrolo/tod_project/tod_django/common/decorators.py"
+			],
+			[
+				"profiles admin",
+				"edrolo/tod_project/tod_django/profiles/admin.py"
+			],
+			[
+				"exams models",
+				"edrolo/tod_project/tod_django/exams/models.py"
+			],
+			[
+				"exams/admin",
+				"edrolo/tod_project/tod_django/exams/admin.py"
+			],
+			[
+				"profile serializer",
+				"edrolo/tod_project/tod_django/api/serializers/profiles.py"
+			],
+			[
+				"tests/tests",
+				"edrolo/tod_project/tod_django/api/tests/tests.py"
+			],
+			[
+				"tod migra",
+				"edrolo/tod_project/tod_django/profiles/migrations/0008_enrolments_3_data_migration.py"
+			],
+			[
+				"api urls",
+				"edrolo/tod_project/tod_django/api/urls.py"
+			],
+			[
+				"exam seriali",
+				"edrolo/tod_project/tod_django/exams/serializers.py"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 850.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"~/dev/edrolo.sublime-project"
+			]
+		],
+		"width": 646.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+		"vim":
+		{
+			":command:":
+			[
+				"i",
+				"<:history:>",
+				"<Esc>"
+			],
+			":history:":
+			[
+				[
+					"insert",
+					{
+						"characters": "1"
+					}
+				],
+				[
+					"insert",
+					{
+						"characters": ":"
+					}
+				],
+				[
+					"insert",
+					{
+						"characters": "00"
+					}
+				],
+				[
+					"insert",
+					{
+						"characters": "\n"
+					}
+				]
+			],
+			"alternate_view": 22
+		}
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 484.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
