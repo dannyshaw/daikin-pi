@@ -312,7 +312,16 @@ class DaikinIR:
 
         protocol = "NEC"
         gpio_pin = 25
-        protocol_config = dict()
+        protocol_config = dict({
+            'duty_cycle': 0.33,
+            'leading_pulse_duration': 9000,
+            'leading_gap_duration': 4500,
+            'one_pulse_duration': 400,
+            'one_gap_duration': 1200,
+            'zero_pulse_duration': 400,
+            'zero_gap_duration': 400,
+            'trailing_pulse': 0,
+        })
         self.ir = IR(gpio_pin, protocol, protocol_config)
 
         self.state = DaikinState()
@@ -329,12 +338,10 @@ class DaikinIR:
         print(self.message.frame_one)
         print(self.message.frame_two)
         print(self.message.frame_three)
-        self.ir.send_frames([
-            self.frame_bin(self.message.frame_one),
-            self.frame_bin(self.message.frame_two),
-            self.frame_bin(self.message.frame_three),
-        ])
-
+        self.ir.send_code(self.frame_bin(self.message.frame_one))
+        self.ir.send_code(self.frame_bin(self.message.frame_two))
+        self.ir.send_code(self.frame_bin(self.message.frame_three))
+        self.ir.destroy()
         # self.send_code(self.frame_bin(self.message.frame_three[8:16]))
         # self.send_code(self.frame_bin(self.message.frame_three[16:]))
 
