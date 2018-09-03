@@ -116,6 +116,8 @@ class NEC():
 
         self.waveforms.append(wave)
 
+        return 0
+
     # Generate zero or one in NEC protocol
     # Zero is represented by a pulse and a gap of the same length
     def zero(self, wave):
