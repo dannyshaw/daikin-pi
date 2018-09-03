@@ -236,7 +236,7 @@ class IR():
             return 1
         print("IR ready")
 
-    def terminate(self):
+    def destroy(self):
         print("Terminating pigpio")
         self.pigpio.gpioTerminate()
 
@@ -276,9 +276,6 @@ class IR():
 
         print("Deleting wave")
         self.pigpio.gpioWaveDelete(wave_id)
-
-        import ipdb
-        ipdb.set_trace()
 
 
 # # Simply define the GPIO pin, protocol (NEC, RC-5 or RAW) and
