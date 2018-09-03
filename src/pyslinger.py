@@ -289,7 +289,7 @@ class IR():
                 return 1
 
         waves = []
-        for waveform in self.protocol.waves:
+        for waveform in self.protocol.waveforms:
             pulses = self.pigpio.gpioWaveAddGeneric(waveform.pulse_count,
                                                     waveform.pulses)
             if pulses < 0:
