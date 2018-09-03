@@ -124,8 +124,8 @@ class NEC():
 
     # One is represented by a pulse and a gap three times longer than the pulse
     def one(self, wave):
-        self.wave.one(self.one_pulse_duration)
-        self.wave.zero(self.one_gap_duration)
+        wave.one(self.one_pulse_duration)
+        wave.zero(self.one_gap_duration)
 
 
 # RC-5 protocol class
