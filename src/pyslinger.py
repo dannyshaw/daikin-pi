@@ -305,6 +305,7 @@ class IR():
             return 1
 
         while self.pigpio.gpioWaveTxBusy():
+            print('sending')
             time.sleep(0.1)
 
         print("Deleting waves")
