@@ -290,6 +290,7 @@ class IR():
                 print("Error in processing IR code!")
                 return 1
 
+        print('sending')
         waves = []
         for waveform in self.protocol.waveforms:
             pulses = self.pigpio.gpioWaveAddGeneric(waveform.pulse_count,
