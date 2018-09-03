@@ -290,7 +290,6 @@ class IR():
                 print("Error in processing IR code!")
                 return 1
 
-        print('sending')
         waves = []
         for waveform in self.protocol.waveforms:
             pulses = self.pigpio.gpioWaveAddGeneric(waveform.pulse_count,
@@ -300,6 +299,7 @@ class IR():
                 return 1
             waves.append(self.pigpio.gpioWaveCreate())
 
+        print('sending')
         chain = self.pigpio.gpioWaveChain(*waves, len(waves))
         if chain != 0:
             print('Error Creating Wave Chain, error:{}'.format(chain))
