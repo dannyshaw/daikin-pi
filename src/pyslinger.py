@@ -17,7 +17,7 @@ class Pulses_struct(ctypes.Structure):
 
 # Since both NEC and RC-5 protocols use the same method for generating waveform,
 # it can be put in a separate class and called from both protocol's classes.
-class Wave_generator():
+class Waveform():
     def __init__(self, protocol):
         self.protocol = protocol
         MAX_PULSES = 120000  # from pigpio.h
@@ -68,7 +68,7 @@ class NEC():
                  zero_gap_duration=562,
                  trailing_pulse=0):
         self.master = master
-        self.wave_generator = Wave_generator(self)
+        self.waveforms = []
         self.frequency = frequency  # in Hz, 38000 per specification
         self.duty_cycle = duty_cycle  # duty cycle of high state pulse
         # Durations of high pulse and low "gap".
@@ -84,47 +84,48 @@ class NEC():
         print("NEC protocol initialized")
 
     # Send AGC burst before transmission
-    def send_agc(self):
+    def send_agc(self, wave):
         print("Sending AGC burst")
-        self.wave_generator.one(self.leading_pulse_duration)
-        self.wave_generator.zero(self.leading_gap_duration)
+        wave.one(self.leading_pulse_duration)
+        wave.zero(self.leading_gap_duration)
 
     # Trailing pulse is just a burst with the duration of standard pulse.
-    def send_trailing_pulse(self):
+    def send_trailing_pulse(self, wave):
         print("Sending trailing pulse")
-        self.wave_generator.one(self.one_pulse_duration)
+        wave.one(self.one_pulse_duration)
 
     # This function is processing IR code. Leaves room for possible manipulation
     # of the code before processing it.
     def process_code(self, ircode):
 
-        self.wave_generator = Wave_generator(self)
+        wave = Waveform(self)
 
         if (self.leading_pulse_duration > 0) or (self.leading_gap_duration >
                                                  0):
-            self.send_agc()
+            self.send_agc(wave)
         for i in ircode:
             if i == "0":
-                self.zero()
+                self.zero(wave)
             elif i == "1":
-                self.one()
+                self.one(wave)
             else:
                 print("ERROR! Non-binary digit!")
                 return 1
         if self.trailing_pulse == 1:
-            self.send_trailing_pulse()
-        return 0
+            self.send_trailing_pulse(wave)
+
+        self.waveforms.append(wave)
 
     # Generate zero or one in NEC protocol
     # Zero is represented by a pulse and a gap of the same length
-    def zero(self):
-        self.wave_generator.one(self.zero_pulse_duration)
-        self.wave_generator.zero(self.zero_gap_duration)
+    def zero(self, wave):
+        wave.one(self.zero_pulse_duration)
+        wave.zero(self.zero_gap_duration)
 
     # One is represented by a pulse and a gap three times longer than the pulse
-    def one(self):
-        self.wave_generator.one(self.one_pulse_duration)
-        self.wave_generator.zero(self.one_gap_duration)
+    def one(self, wave):
+        self.wave.one(self.one_pulse_duration)
+        self.wave.zero(self.one_gap_duration)
 
 
 # RC-5 protocol class
@@ -138,7 +139,7 @@ class RC5():
                  one_duration=889,
                  zero_duration=889):
         self.master = master
-        self.wave_generator = Wave_generator(self)
+        self.wave_generator = Waveform(self)
         self.frequency = frequency  # in Hz, 36000 per specification
         self.duty_cycle = duty_cycle  # duty cycle of high state pulse
         # Durations of high pulse and low "gap".
@@ -185,7 +186,7 @@ class RAW():
                  one_duration=520,
                  zero_duration=520):
         self.master = master
-        self.wave_generator = Wave_generator(self)
+        self.wave_generator = Waveform(self)
         self.frequency = frequency  # in Hz
         self.duty_cycle = duty_cycle  # duty cycle of high state pulse
         self.one_duration = one_duration  # in microseconds
@@ -281,15 +282,16 @@ class IR():
             print("Error in clearing wave!")
             return 1
 
-        waves = []
         for frame in frames:
             code = self.protocol.process_code(frame)
             if code != 0:
                 print("Error in processing IR code!")
                 return 1
-            pulses = self.pigpio.gpioWaveAddGeneric(
-                self.protocol.wave_generator.pulse_count,
-                self.protocol.wave_generator.pulses)
+
+        waves = []
+        for waveform in self.protocol.waves:
+            pulses = self.pigpio.gpioWaveAddGeneric(waveform.pulse_count,
+                                                    waveform.pulses)
             if pulses < 0:
                 print("Error in adding wave!")
                 return 1
