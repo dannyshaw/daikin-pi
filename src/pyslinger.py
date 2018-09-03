@@ -66,7 +66,7 @@ class NEC():
                  one_gap_duration=1686,
                  zero_pulse_duration=562,
                  zero_gap_duration=562,
-                 trailing_pulse=0):
+                 trailing_pulse=1):
         self.master = master
         self.wave_generator = Wave_generator(self)
         self.frequency = frequency  # in Hz, 38000 per specification
