@@ -299,7 +299,10 @@ class IR():
                 return 1
             waves.append(self.pigpio.gpioWaveCreate())
 
-        self.pigpio.gpioWaveChain(*waves, len(waves))
+        chain = self.pigpio.gpioWaveChain(*waves, len(waves))
+        if chain != 0:
+            print 'Error Creating Wave Chain'
+            return 1
 
         while self.pigpio.gpioWaveTxBusy():
             time.sleep(0.1)
