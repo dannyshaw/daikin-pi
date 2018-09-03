@@ -236,18 +236,16 @@ class IR():
             return 1
         print("IR ready")
 
-    def destroy(self):
-        print("Terminating pigpio")
-        self.pigpio.gpioTerminate()
-
     # send_code takes care of sending the processed IR code to pigpio.
     # IR code itself is processed and converted to pigpio structs by protocol's classes.
-    def send_code(self, ircode):
+    def set_frame(self, ircode):
         print("Processing IR code: %s" % ircode)
         code = self.protocol.process_code(ircode)
         if code != 0:
             print("Error in processing IR code!")
             return 1
+
+    def send(self):
         clear = self.pigpio.gpioWaveClear()
         if clear != 0:
             print("Error in clearing wave!")
@@ -276,6 +274,9 @@ class IR():
 
         print("Deleting wave")
         self.pigpio.gpioWaveDelete(wave_id)
+
+        print("Terminating pigpio")
+        self.pigpio.gpioTerminate()
 
 
 # # Simply define the GPIO pin, protocol (NEC, RC-5 or RAW) and
