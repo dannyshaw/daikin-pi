@@ -339,11 +339,10 @@ class DaikinIR:
         # print(self.message.frame_two)
         # print(self.message.frame_three)
         from time import sleep
-        self.ir.send_code(self.frame_bin(self.message.frame_one))
-        sleep(0.033)
-        self.ir.send_code(self.frame_bin(self.message.frame_two))
-        sleep(0.033)
-        self.ir.send_code(self.frame_bin(self.message.frame_three))
+        self.ir.send_code(
+            self.frame_bin(self.message.frame_one) +
+            self.frame_bin(self.message.frame_two) +
+            self.frame_bin(self.message.frame_three))
         # self.send_code(self.frame_bin(self.message.frame_three[8:16]))
         # self.send_code(self.frame_bin(self.message.frame_three[16:]))
 
