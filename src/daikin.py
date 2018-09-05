@@ -316,10 +316,10 @@ class DaikinIR:
             'duty_cycle': 0.33,
             'leading_pulse_duration': 3400,
             'leading_gap_duration': 1750,
-            'one_pulse_duration': 432,
-            'one_gap_duration': 1300,
-            'zero_pulse_duration': 432,
-            'zero_gap_duration': 432,
+            'one_pulse_duration': 430,
+            'one_gap_duration': 420,
+            'zero_pulse_duration': 430,
+            'zero_gap_duration': 1320,
             'trailing_pulse': 1,
         })
         self.ir = IR(gpio_pin, protocol, protocol_config)
