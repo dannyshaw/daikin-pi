@@ -320,7 +320,7 @@ class DaikinIR:
             'one_gap_duration': 1300,
             'zero_pulse_duration': 432,
             'zero_gap_duration': 432,
-            'trailing_pulse': 0,
+            'trailing_pulse': 1,
         })
         self.ir = IR(gpio_pin, protocol, protocol_config)
 
