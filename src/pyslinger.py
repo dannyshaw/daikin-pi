@@ -244,10 +244,10 @@ class IR():
             return 1
 
     def send(self):
-        clear = self.pigpio.gpioWaveClear()
-        if clear != 0:
-            print("Error in clearing wave!")
-            return 1
+        # clear = self.pigpio.gpioWaveClear()
+        # if clear != 0:
+        #     print("Error in clearing wave!")
+        #     return 1
         pulses = self.pigpio.gpioWaveAddGeneric(
             self.protocol.wave_generator.pulse_count,
             self.protocol.wave_generator.pulses)

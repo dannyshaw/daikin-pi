@@ -314,12 +314,12 @@ class DaikinIR:
         gpio_pin = 25
         protocol_config = dict({
             'duty_cycle': 0.33,
-            'leading_pulse_duration': 9000,
-            'leading_gap_duration': 4500,
-            'one_pulse_duration': 400,
-            'one_gap_duration': 1200,
-            'zero_pulse_duration': 400,
-            'zero_gap_duration': 400,
+            'leading_pulse_duration': 3400,
+            'leading_gap_duration': 1750,
+            'one_pulse_duration': 432,
+            'one_gap_duration': 1300,
+            'zero_pulse_duration': 432,
+            'zero_gap_duration': 432,
             'trailing_pulse': 0,
         })
         self.ir = IR(gpio_pin, protocol, protocol_config)
@@ -335,9 +335,9 @@ class DaikinIR:
 
         # code = self.frame_bin(self.message.frame_one + self.message.frame_two +
         #                       self.message.frame_three)
-        print(self.message.frame_one)
-        print(self.message.frame_two)
-        print(self.message.frame_three)
+        # print(self.message.frame_one)
+        # print(self.message.frame_two)
+        # print(self.message.frame_three)
         self.ir.set_frame(self.frame_bin(self.message.frame_one))
         self.ir.set_frame(self.frame_bin(self.message.frame_two))
         self.ir.set_frame(self.frame_bin(self.message.frame_three))
