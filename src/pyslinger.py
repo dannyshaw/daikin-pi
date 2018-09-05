@@ -236,6 +236,7 @@ class IR():
     # send_code takes care of sending the processed IR code to pigpio.
     # IR code itself is processed and converted to pigpio structs by protocol's classes.
     def send_code(self, ircode):
+        self.pigpio.gpioInitialise()
         print("Processing IR code: %s" % ircode)
         code = self.protocol.process_code(ircode)
         if code != 0:
