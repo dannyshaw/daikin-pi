@@ -219,10 +219,10 @@ class IR():
         self.pigpio.gpioInitialise()
         self.gpio_pin = gpio_pin
         PI_OUTPUT = 1  # from pigpio.h
-        print("Configuring pin %d as output" % self.gpio_pin)
         self.pigpio.gpioSetMode(self.gpio_pin,
                                 PI_OUTPUT)  # pin 17 is used in LIRC by default
         print("Initializing protocol")
+        print("Configuring pin %d as output" % self.gpio_pin)
         if protocol == "NEC":
             self.protocol = NEC(self, **protocol_config)
         elif protocol == "RC-5":
@@ -248,7 +248,7 @@ class IR():
 
     def send(self):
         self.init()
-        self.pigpio.gpioInitialise()
+        # self.pigpio.gpioInitialise()
         # clear = self.pigpio.gpioWaveClear()
         # if clear != 0:
         #     print("Error in clearing wave!")
