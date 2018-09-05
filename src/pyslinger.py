@@ -216,6 +216,12 @@ class IR():
         print("Loading libpigpio.so")
         self.pigpio = ctypes.CDLL('libpigpio.so')
         print("Initializing pigpio")
+        self.pigpio.gpioInitialise()
+        self.gpio_pin = gpio_pin
+        PI_OUTPUT = 1  # from pigpio.h
+        print("Configuring pin %d as output" % self.gpio_pin)
+        self.pigpio.gpioSetMode(self.gpio_pin,
+                                PI_OUTPUT)  # pin 17 is used in LIRC by default
         print("Initializing protocol")
         if protocol == "NEC":
             self.protocol = NEC(self, **protocol_config)
@@ -229,12 +235,7 @@ class IR():
         print("IR ready")
 
     def init(self):
-        PI_OUTPUT = 1  # from pigpio.h
-        self.pigpio.gpioInitialise()
-        self.gpio_pin = gpio_pin
-        print("Configuring pin %d as output" % self.gpio_pin)
-        self.pigpio.gpioSetMode(self.gpio_pin,
-                                PI_OUTPUT)  # pin 17 is used in LIRC by default
+        pass
 
     # send_code takes care of sending the processed IR code to pigpio.
     # IR code itself is processed and converted to pigpio structs by protocol's classes.
