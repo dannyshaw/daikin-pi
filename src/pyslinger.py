@@ -247,6 +247,7 @@ class IR():
 
     def send(self):
         self.init()
+        self.pigpio.gpioInitialise()
         # clear = self.pigpio.gpioWaveClear()
         # if clear != 0:
         #     print("Error in clearing wave!")
