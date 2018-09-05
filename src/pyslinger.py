@@ -98,8 +98,6 @@ class NEC():
     # of the code before processing it.
     def process_code(self, ircode):
 
-        self.wave_generator = Wave_generator(self)
-
         if (self.leading_pulse_duration > 0) or (self.leading_gap_duration >
                                                  0):
             self.send_agc()
