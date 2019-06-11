@@ -14,13 +14,23 @@ def transmit(state):
 
 @app.route('/heat/<int:temperature>', methods=['POST'])
 def heat(temperature):
-    state = DaikinState(power=True, temperature=20, ac_mode=AC_MODE.HEAT)
+    state = DaikinState(
+        power=True, temperature=temperature, ac_mode=AC_MODE.HEAT)
     state.fan_mode = FAN_MODE.AUTO
     return transmit(state)
 
 
 @app.route('/cool/<int:temperature>', methods=['POST'])
 def cool(temperature):
-    state = DaikinState(power=True, temperature=20, ac_mode=AC_MODE.COOL)
+    state = DaikinState(
+        power=True, temperature=temperature, ac_mode=AC_MODE.COOL)
     state.fan_mode = FAN_MODE.AUTO
+    return transmit(state)
+
+
+@app.route('/morning', methods=['POST'])
+def cool(temperature):
+    state = DaikinState(power=True, temperature=21, ac_mode=AC_MODE.HEAT)
+    state.fan_mode = FAN_MODE.AUTO
+    state.powerful = True
     return transmit(state)
