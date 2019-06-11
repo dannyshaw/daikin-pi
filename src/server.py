@@ -4,23 +4,23 @@ from flask import Flask
 app = Flask(__name__)
 
 
-
-def main():
-    state = DaikinState(power=True, temperature=20, ac_mode=AC_MODE.HEAT)
-    state.fan_mode = FAN_MODE.AUTO
-    state.powerful = True
-
+def transmit(state):
     message = DaikinMessage(state)
-
     lirc = DaikinLIRC()
-
     config = lirc.get_config(message)
     lirc.transmit(config)
-    return "OK"
+    return 'OK'
 
-@app.route('/morning')
-def hello_world():
-    return main() 
 
-if __name__ == '__main__':
-    main()
+@app.route('/heat/<int:temperature>', methods=['POST'])
+def heat(temperature):
+    state = DaikinState(power=True, temperature=20, ac_mode=AC_MODE.HEAT)
+    state.fan_mode = FAN_MODE.AUTO
+    return transmit(state)
+
+
+@app.route('/cool/<int:temperature>', methods=['POST'])
+def cool(temperature):
+    state = DaikinState(power=True, temperature=20, ac_mode=AC_MODE.COOL)
+    state.fan_mode = FAN_MODE.AUTO
+    return transmit(state)
