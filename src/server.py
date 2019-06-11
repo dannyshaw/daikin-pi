@@ -29,7 +29,7 @@ def cool(temperature):
 
 
 @app.route('/morning', methods=['POST'])
-def cool(temperature):
+def morning(temperature):
     state = DaikinState(power=True, temperature=21, ac_mode=AC_MODE.HEAT)
     state.fan_mode = FAN_MODE.AUTO
     state.powerful = True
