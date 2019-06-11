@@ -348,7 +348,7 @@ class DaikinLIRC:
             self.ONE if digit == '1' else self.ZERO for digit in binary_frame
         ])
 
-    def get_lirc_conf(self, message):
+    def get_config(self, message):
         frame_one = self._get_frame_codes(message.frame_one)
         frame_two = self._get_frame_codes(message.frame_two)
         frame_three = self._get_frame_codes(message.frame_three)
@@ -386,7 +386,7 @@ end remote
             config_file.write(config)
 
         subprocess.check_output(
-            ['sudo', 'cp', './daikin-pi.lircd.conf', '/etc/lirc/lirc.conf.d/'])
+            ['sudo', 'cp', './daikin-pi.lircd.conf', '/etc/lirc/lircd.conf.d/'])
         subprocess.check_output(['sudo', 'service', 'lircd', 'restart'])
         subprocess.check_output(
             ['irsend', 'SEND_ONCE', 'daikin-pi', 'dynamic-signal'])
