@@ -1,25 +1,16 @@
-from .daikin import DaikinState, DaikinMessage
-from .pyslinger import IR
+from daikin import DaikinMessage, DaikinState, DaikinLIRC, AC_MODE, FAN_MODE
 
 
-class DaikinIR:
-    def __init__(self):
-        protocol = "NEC"
-        gpio_pin = 25
-        protocol_config = dict()
-        self.ir = IR(gpio_pin, protocol, protocol_config)
-        self.state = DaikinState()
-        self.message = DaikinMessage(self.state)
+def main():
+    state = DaikinState(power=True, temperature=25, ac_mode=AC_MODE.HEAT)
+    state.fan_mode = FAN_MODE.FIVE
+    message = DaikinMessage(state)
 
-    def transmit(self):
-        self.state.power = True
+    lirc = DaikinLIRC()
 
-        ir.send_code(self.message.frame_one)
-        ir.send_code(self.message.frame_two)
-        ir.send_code(self.message.frame_three)
+    config = lirc.get_config(message)
+    lirc.transmit(config)
 
 
-if __name__ == "__main__":
-    daikin = DaikinIR()
-    daikin.transmit()
-    print("Exiting IR")
+if __name__ == '__main__':
+    main()
