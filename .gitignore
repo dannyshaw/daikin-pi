@@ -2,3 +2,5 @@
 src/.pytest_cache
 src/__pycache__/
 src/daikin-pi.lircd.conf
+untitled.sublime-project
+untitled.sublime-workspace

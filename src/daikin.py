@@ -1,6 +1,5 @@
-#!/usr/bin/env python3
 from enum import Enum
-from pyslinger import IR
+import subprocess
 
 
 class AC_MODE(Enum):
@@ -31,10 +30,6 @@ class TIMER_MODE(Enum):
     SET_ON = True
     SET_OFF = False
     SET_NONE = None
-
-
-class InvalidSetting(Exception):
-    pass
 
 
 class DaikinState:
@@ -155,6 +150,7 @@ class DaikinMessage:
 
     @property
     def frame_one(self):
+        # relevant bit indicies
         MESSAGE_ID = 4
         COMFORT = 6
         CHECKSUM = 7
@@ -175,6 +171,8 @@ class DaikinMessage:
 
     @property
     def frame_two(self):
+
+        # relevant bit indicies
         MESSAGE_ID = 4
         CHECKSUM = 7
 
@@ -190,6 +188,24 @@ class DaikinMessage:
 
     @property
     def frame_three(self):
+        """
+        Most relevant information is stored in this frame
+        A number of methods are used to update the frame data from empty bytes
+        to a complete message
+
+        Initial fixed bits are set
+
+        Boolean Logical OR is used to flip boolean data on from
+        default off using different
+        bits depending on where data needs to be stored
+        byte = byte | 0x01 flips the last bit
+        byte = byte | 0x02 flips the second last bit
+        byte = byte | 0x04 flips the third last bit, etc
+
+        In places where
+        """
+
+        # relevant bit indicies
         MESSAGE_ID = 4
         MODE_POWER_TIMERS = 5
         TEMPERATURE = 6
@@ -217,13 +233,13 @@ class DaikinMessage:
         # Temperature - doubled for encoding
         frame[TEMPERATURE] = self.state.temperature << 1
 
-        #  AC_MODE_POWER_TIMERS - encodes all three into one byte
+        #  AC_MODE_POWER_TIMERS - encodes all three into one byte (two nybbles)
         # [ 0     0     0     0     1      0        0       0     ]
         # [(       ac_mode      ) fixed (set on)(set off)(pwr on) ]
 
         # Set AC_MODE
-        self._set_first_four_bits(frame, MODE_POWER_TIMERS,
-                                  self.state.ac_mode.value)
+        self._set_first_nybble(frame, MODE_POWER_TIMERS,
+                               self.state.ac_mode.value)
 
         # Timer Is Setting Unit On/Off
         if self.state.timer is not None:
@@ -237,16 +253,15 @@ class DaikinMessage:
             frame[MODE_POWER_TIMERS] = frame[MODE_POWER_TIMERS] | 0x01
 
         # Fan Mode/Speed
-        self._set_first_four_bits(frame, FAN_SETTING,
-                                  self.state.fan_mode.value)
+        self._set_first_nybble(frame, FAN_SETTING, self.state.fan_mode.value)
 
         # Fan Swing
-        self._set_last_four_bits(frame, SWING_HORIZONTAL,
-                                 self.state.swing_horizontal)
-        self._set_last_four_bits(frame, SWING_VERTICAL,
-                                 self.state.swing_vertical)
+        self._set_second_nybble(frame, SWING_HORIZONTAL,
+                                self.state.swing_horizontal)
+        self._set_second_nybble(frame, SWING_VERTICAL,
+                                self.state.swing_vertical)
 
-        # Timer Delay - complicated encoding
+        # Timer Delay - complicated encoding not really completely understood
         # Timer ON sets duration at TIMER_A and TIMER_B
         # Timer OFF sets duration at TIMER_B and TIMER_C
         frame[TIMER_A] = 0x00
@@ -270,7 +285,7 @@ class DaikinMessage:
                 frame[TIMER_C] = mins >> 4
                 frame[TIMER_B] = frame[TIMER_B] | (mins & 0x0f) << 4
         elif self.state.timer == TIMER_MODE.SET_ON:
-            mins = state.timer_duration * 60
+            mins = self.state.timer_duration * 60
             frame[TIMER_A] = mins & 0xff
             frame[TIMER_B] = (mins >> 8) & 0xff
 
@@ -298,55 +313,80 @@ class DaikinMessage:
     def _checksum(self, frame):
         return sum(frame) & 0xff
 
-    def _set_first_four_bits(self, frame, index, to):
+    def _set_first_nybble(self, frame, index, to):
         frame[index] = 0x0f & frame[index]  # null first 4 bytes
         frame[index] = (to << 4) | frame[index]  # fill first 4 bytes
 
-    def _set_last_four_bits(self, frame, index, to):
+    def _set_second_nybble(self, frame, index, to):
         frame[index] = frame[index] & 0xf0
         frame[index] = frame[index] | to
 
 
-class DaikinIR:
-    def __init__(self):
+class DaikinLIRC:
 
-        protocol = "NEC"
-        gpio_pin = 25
-        protocol_config = dict({
-            'duty_cycle': 0.33,
-            'leading_pulse_duration': 3500,
-            'leading_gap_duration': 1600,
-            'one_pulse_duration': 400,
-            'one_gap_duration': 1300,
-            'zero_pulse_duration': 400,
-            'zero_gap_duration': 450,
-            'trailing_pulse': 1,
-        })
-        self.ir = IR(gpio_pin, protocol, protocol_config)
+    GPIO_PIN_TX = 22
 
-        self.state = DaikinState()
-        self.message = DaikinMessage(self.state)
+    PULSE = 430
+    ZERO_GAP = 430
+    ONE_GAP = 1320
 
-    def frame_bin(self, frame):
-        return "".join([bin(item)[2:].zfill(8) for item in frame])
+    # these are strings as they will be output to an LIRC conf (as microsecond commands)
+    ZERO = f'{PULSE} {ZERO_GAP}'
+    ONE = f'{PULSE} {ONE_GAP}'
+    FRAME_HEADER = '3440 1720'
+    SHORT_GAP = f'{PULSE} 25000'
+    LONG_GAP = f'{PULSE} 35500'
 
-    def transmit(self):
-        self.state.power = True
+    def _get_lsb_binary_string(self, frame):
+        # convert to binary byte string and reverse it
+        return "".join(['{0:08b}'.format(item)[::-1] for item in frame])
 
-        # code = self.frame_bin(self.message.frame_one + self.message.frame_two +
-        #                       self.message.frame_three)
-        # print(self.message.frame_one)
-        # print(self.message.frame_two)
-        # print(self.message.frame_three)
-        self.ir.set_frame(self.frame_bin(self.message.frame_one))
-        self.ir.set_frame(self.frame_bin(self.message.frame_two))
-        self.ir.set_frame(self.frame_bin(self.message.frame_three))
-        self.ir.send()
-        # self.send_code(self.frame_bin(self.message.frame_three[8:16]))
-        # self.send_code(self.frame_bin(self.message.frame_three[16:]))
+    def _get_frame_codes(self, frame):
+        binary_frame = self._get_lsb_binary_string(frame)
+        # swap binary digits for pulse codes as defined above
+        return '\n        '.join([
+            self.ONE if digit == '1' else self.ZERO for digit in binary_frame
+        ])
 
+    def get_config(self, message):
+        frame_one = self._get_frame_codes(message.frame_one)
+        frame_two = self._get_frame_codes(message.frame_two)
+        frame_three = self._get_frame_codes(message.frame_three)
 
-if __name__ == "__main__":
-    daikin = DaikinIR()
-    daikin.transmit()
-    print("Exiting IR")
+        return f"""begin remote
+    name    daikin-pi
+    flags   RAW_CODES
+    eps     30
+    aeps    100
+    gap     34978
+    begin raw_codes
+        name dynamic-signal
+        {self.ZERO}
+        {self.ZERO}
+        {self.ZERO}
+        {self.ZERO}
+        {self.ZERO}
+        {self.SHORT_GAP}
+        {self.FRAME_HEADER}
+        {frame_one}
+        {self.LONG_GAP}
+        {self.FRAME_HEADER}
+        {frame_two}
+        {self.LONG_GAP}
+        {self.FRAME_HEADER}
+        {frame_three}
+        {self.PULSE}
+    end raw_codes
+end remote
+        """
+
+    def transmit(self, config):
+
+        with open('daikin-pi.lircd.conf', 'w') as config_file:
+            config_file.write(config)
+
+        subprocess.check_output(
+            ['sudo', 'cp', './daikin-pi.lircd.conf', '/etc/lirc/lircd.conf.d/'])
+        subprocess.check_output(['sudo', 'service', 'lircd', 'restart'])
+        subprocess.check_output(
+            ['irsend', 'SEND_ONCE', 'daikin-pi', 'dynamic-signal'])

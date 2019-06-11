@@ -1,5 +1,5 @@
 from unittest import TestCase
-from DaikinState import DaikinMessage, DaikinState
+from .daikin import DaikinMessage, DaikinState
 
 
 def get_hex(frame):
@@ -59,5 +59,6 @@ class TestDaikinMessage(TestCase):
     def test_bin_string(self):
         self.assertEqual(8, len(self.message.frame_one))
         self.assertEqual(
-            '', "".join(
+            '0001000111011010001001110000000011000101000000000000000011010111',
+            "".join(
                 [bin(item)[2:].zfill(8) for item in self.message.frame_one]))
