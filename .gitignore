@@ -1,2 +1,4 @@
 .pytest_cache
 src/.pytest_cache
+src/__pycache__/
+src/daikin-pi.lircd.conf
