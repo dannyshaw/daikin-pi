@@ -1,3 +1,106 @@
+# Raspberry Pi IR Gateway for Daikin ARC remote control
+
+Tested on my split system which uses a remote with the model number `ARC433B70`
+
+## Installation
+
+### Configure LIRC
+
+Assumes the use of gpio pin 22 for tx, 23 for rx, edit accordingly.
+
+Install LIRC
+```
+$ sudo apt install lirc
+```
+
+Ensure this line in /boot/config.txt:
+```
+dtoverlay=lirc-rpi,gpio_in_pin=23,gpio_out_pin=22,gpio_in_pull=up
+```
+
+Edit or create /etc/lirc/hardware.conf
+```
+########################################################
+# /etc/lirc/hardware.conf
+#
+# Arguments which will be used when launching lircd
+LIRCD_ARGS="--uinput"
+# Don't start lircmd even if there seems to be a good config file
+# START_LIRCMD=false
+# Don't start irexec, even if a good config file seems to exist.
+# START_IREXEC=false
+# Try to load appropriate kernel modules
+LOAD_MODULES=true
+# Run "lircd --driver=help" for a list of supported drivers.
+DRIVER="default"
+# usually /dev/lirc0 is the correct setting for systems using udev
+DEVICE="/dev/lirc0"
+MODULES="lirc_rpi"
+# Default configuration files for your hardware if any
+LIRCD_CONF=""
+LIRCMD_CONF=""
+########################################################
+```
+
+Add these lines to /etc/modules
+```
+lirc_dev
+lirc_rpi gpio_in_pin=23 gpio_out_pin=22
+```
+
+Reboot
+
+### Install Python3.6 (from source)
+
+```
+sudo apt-get install python3-dev libffi-dev libssl-dev -y
+wget https://www.python.org/ftp/python/3.6.5/Python-3.6.5.tar.xz
+tar xf Python-3.6.5.tar.xz
+cd Python-3.6.5/
+./configure
+make
+sudo make altinstall
+```
+
+### Test LIRC Circuit with a simple IR signal to test it works
+
+Find a remote for your tv or something here or elsewhere on the web
+http://lirc.sourceforge.net/remotes/
+
+Copy it to
+`/etc/lirc/lircd.conf.d/<remote-name>.lircd.conf`
+
+Restart lirc
+`sudo systemctl restart lircd`
+
+Send a command to the remote
+`sudo irsend SEND_ONCE <remote-name> <command-name>`
+
+eg, `sudo irsend SEND_ONCE SamsungTV KEY_POWER`
+To turn on the tv...
+
+
+### Send a Daikin remote command
+
+In the root folder there is a file called `daikin.lircd.conf`
+This is a valid single command for my Daikin. It should set it to heat (20 degrees from memory)
+Test that it works by firing this command at your Daikin
+
+```
+# install the file
+sudo sp daikin-pi.lircd.conf /etc/lirc/lircd.conf.d/daikin-pi.lircd.conf
+
+# restart LIRC
+sudo systemctl restart lircd
+
+# send the command
+sudo irsend SEND_ONCE daikin-pi test-signal
+```
+
+
+
+### Resources
+
 https://medium.com/@camilloaddis/smart-air-conditioner-with-raspberry-pi-an-odissey-2a5b438fe984
 
 http://alexba.in/blog/2013/01/06/setting-up-lirc-on-the-raspberrypi/

@@ -33,23 +33,28 @@ class TIMER_MODE(Enum):
 
 
 class DaikinState:
-    def __init__(self,
-                 power=False,
-                 temperature=20,
-                 ac_mode=AC_MODE.AUTO,
-                 fan_mode=FAN_MODE.AUTO):
+    def __init__(
+            self,
+            power=False,
+            temperature=20,
+            ac_mode=AC_MODE.AUTO,
+            fan_mode=FAN_MODE.AUTO,
+            swing_vertical=False,
+            swing_horizontal=False,
+            economy=False,
+            comfort=False,
+            powerful=False,
+    ):
 
         self._power = power
         self._temperature = temperature
         self._ac_mode = ac_mode
         self._fan_mode = fan_mode
-
-        self._swing_vertical = False
-        self._swing_horizontal = False
-        self._economy = False
-        self._comfort = False
-        self._powerful = False
-        self._timer = None
+        self._swing_vertical = swing_vertical
+        self._swing_horizontal = swing_horizontal
+        self._economy = economy
+        self._comfort = comfort
+        self._powerful = powerful
 
     @property
     def power(self):
@@ -134,14 +139,24 @@ class DaikinState:
     def comfort(self, value):
         self._comfort = bool(value)
 
-    @property
-    def timer(self):
-        return self._timer
+    def serialize(self):
+        return {
+            'power': self._power,
+            'temperature': self._temperature,
+            'ac_mode': self._ac_mode.name,
+            'fan_mode': self._fan_mode.name,
+            'swing_vertical': self._swing_vertical,
+            'swing_horizontal': self._swing_horizontal,
+            'economy': self._economy,
+            'comfort': self._comfort,
+            'powerful': self._powerful,
+        }
 
-    @timer.setter
-    def timer(self, value):
-        # TODO: timer
-        self._timer = value
+    @classmethod
+    def deserialize(cls, data):
+        data['ac_mode'] = AC_MODE[data['ac_mode']]
+        data['fan_mode'] = FAN_MODE[data['fan_mode']]
+        return cls(**data)
 
 
 class DaikinMessage:
@@ -385,8 +400,9 @@ end remote
         with open('daikin-pi.lircd.conf', 'w') as config_file:
             config_file.write(config)
 
-        subprocess.check_output(
-            ['sudo', 'cp', './daikin-pi.lircd.conf', '/etc/lirc/lircd.conf.d/'])
+        subprocess.check_output([
+            'sudo', 'cp', './daikin-pi.lircd.conf', '/etc/lirc/lircd.conf.d/'
+        ])
         subprocess.check_output(['sudo', 'service', 'lircd', 'restart'])
         subprocess.check_output(
             ['irsend', 'SEND_ONCE', 'daikin-pi', 'dynamic-signal'])
