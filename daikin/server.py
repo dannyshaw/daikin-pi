@@ -79,7 +79,7 @@ def get_power(value):
     return state.power
 
 
-@app.route('/power/<str:value>', methods=['POST'])
+@app.route('/power/<string:value>', methods=['POST'])
 def set_power(value):
     state = load()
     if value in ['off', 'on']:
@@ -123,7 +123,7 @@ def get_ac_mode():
     return state.serialize()['ac_mode']
 
 
-@app.route('/ac_mode/<str:value>', methods=['POST'])
+@app.route('/ac_mode/<string:value>', methods=['POST'])
 def set_ac_mode(value):
     state = load()
     if value in DaikinState.AC_MODE:
