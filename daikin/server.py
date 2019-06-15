@@ -67,7 +67,7 @@ def cool(temperature):
 
 @app.route('/morning', methods=['POST'])
 def morning():
-    state = DaikinState(temperature=21, ac_mode=AC_MODE.HEAT)
+    state = DaikinState(power=True, temperature=21, ac_mode=AC_MODE.HEAT)
     state.powerful = True
     return transmit(state)
 
