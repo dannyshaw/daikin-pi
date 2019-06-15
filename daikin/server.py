@@ -84,7 +84,7 @@ def set_power(value):
     state = load()
     if value in ['off', 'on']:
         state.power = value == 'on'
-        transmit(state)
+        return transmit(state)
     else:
         raise InvalidUsage('Invalid power setting')
 
@@ -100,21 +100,21 @@ def get_temperature():
 def set_temperature(degrees=None):
     state = load()
     state.temperature = degrees
-    transmit(state)
+    return transmit(state)
 
 
 @app.route('/temperature/increase', methods=['POST'])
 def increase_temperature():
     state = load()
     state.temperature = state.temperature + 1
-    transmit(state)
+    return transmit(state)
 
 
 @app.route('/temperature/decrease', methods=['POST'])
 def decrease_temperature():
     state = load()
     state.temperature = state.temperature - 1
-    transmit(state)
+    return transmit(state)
 
 
 @app.route('/ac_mode')
