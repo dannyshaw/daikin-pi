@@ -1,7 +1,8 @@
-#!/usr/bin/python3
+#!/usr/bin/python3.6
+
 from .daikin import DaikinMessage, DaikinState, DaikinLIRC, AC_MODE
 import json
-from flask import Flask, request
+from flask import Flask, request, jsonify
 app = Flask(__name__)
 CONFIG_FILE_NAME = '../data/config.json'
 
@@ -72,17 +73,64 @@ def morning(temperature):
 
 
 # State Machine Controls
-@app.route('/power/<str:value>', methods=['POST', 'GET'])
-def power(value):
+@app.route('/power')
+def get_power(value):
     state = load()
-    if request.method == 'POST':
-        if value in ['off', 'on']:
-            state.power = value == 'on'
-            transmit(state)
-        else:
-            raise InvalidUsage('Invalid power setting')
+    return state.power
+
+
+@app.route('/power/<str:value>', methods=['POST'])
+def set_power(value):
+    state = load()
+    if value in ['off', 'on']:
+        state.power = value == 'on'
+        transmit(state)
     else:
-        return state.serialize()['power']
+        raise InvalidUsage('Invalid power setting')
+
+
+# State Machine Controls
+@app.route('/temperature')
+def get_temperature():
+    state = load()
+    return state.temperature
+
+
+@app.route('/temperature/<int:degrees>', methods=['POST'])
+def set_temperature(degrees=None):
+    state = load()
+    state.temperature = degrees
+    transmit(state)
+
+
+@app.route('/temperature/increase', methods=['POST'])
+def increase_temperature():
+    state = load()
+    state.temperature = state.temperature + 1
+    transmit(state)
+
+
+@app.route('/temperature/decrease', methods=['POST'])
+def decrease_temperature():
+    state = load()
+    state.temperature = state.temperature - 1
+    transmit(state)
+
+
+@app.route('/ac_mode')
+def get_ac_mode():
+    state = load()
+    return state.serialize()['ac_mode']
+
+
+@app.route('/ac_mode/<str:value>', methods=['POST'])
+def set_ac_mode(value):
+    state = load()
+    if value in DaikinState.AC_MODE:
+        state.ac_mode = value
+        transmit(state)
+    else:
+        raise InvalidUsage('Invalid mode setting')
 
 
 if __name__ == '__main__':

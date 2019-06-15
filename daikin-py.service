@@ -4,7 +4,7 @@
 
  [Service]
  Type=idle
- ExecStart=/usr/bin/python3.6 -m flask run --host 0.0.0.0
+ ExecStart=FLASK_APP=/home/pi/src/daikin-pi/daikin/server.py /usr/bin/python3.6 -m flask run --host 0.0.0.0
 
  [Install]
  WantedBy=multi-user.target

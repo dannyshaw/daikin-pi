@@ -157,3 +157,6 @@ This is more about my roadmap towards home automation with an old shitty house a
 - https://randomnerdtutorials.com/esp32-mqtt-publish-subscribe-arduino-ide/
 - https://esphome.io/components/sensor/xiaomi_mijia.html
 - https://www.hackster.io/rayburne/esp32-in-love-with-both-cores-8dd948
+
+*MQTT*
+- https://diyodemag.com/projects/mqtt_light_switch
