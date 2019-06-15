@@ -55,6 +55,7 @@ class DaikinState:
         self._economy = economy
         self._comfort = comfort
         self._powerful = powerful
+        self._timer = None  # Not Implemented
 
     @property
     def power(self):
@@ -134,6 +135,10 @@ class DaikinState:
     @property
     def comfort(self):
         return self._comfort
+
+    @property
+    def timer(self):
+        return self._timer
 
     @comfort.setter
     def comfort(self, value):
