@@ -12,7 +12,7 @@ def save(state):
         json.dump(state.serialize(), f)
 
 
-def load(data):
+def load():
     with open(CONFIG_FILE_NAME, 'r') as f:
         data = json.load(f)
 
