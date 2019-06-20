@@ -55,13 +55,15 @@ def handle_invalid_usage(error):
 # Presets for Google Assistant
 @app.route('/heat/<int:temperature>', methods=['POST'])
 def heat(temperature):
-    state = DaikinState(temperature=temperature, ac_mode=AC_MODE.HEAT)
+    state = DaikinState(
+        power=True, temperature=temperature, ac_mode=AC_MODE.HEAT)
     return transmit(state)
 
 
 @app.route('/cool/<int:temperature>', methods=['POST'])
 def cool(temperature):
-    state = DaikinState(temperature=temperature, ac_mode=AC_MODE.COOL)
+    state = DaikinState(
+        power=True, temperature=temperature, ac_mode=AC_MODE.COOL)
     return transmit(state)
 
 
