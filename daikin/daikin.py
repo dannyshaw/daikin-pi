@@ -1,5 +1,6 @@
-from enum import Enum
 import subprocess
+from enum import Enum
+from jinja2 import Template
 
 
 class AC_MODE(Enum):
@@ -351,11 +352,11 @@ class DaikinLIRC:
     ONE_GAP = 1320
 
     # these are strings as they will be output to an LIRC conf (as microsecond commands)
-    ZERO = f'{PULSE} {ZERO_GAP}'
-    ONE = f'{PULSE} {ONE_GAP}'
+    ZERO = '{} {}'.format(PULSE, ZERO_GAP)
+    ONE = '{} {}'.format(PULSE, ONE_GAP)
     FRAME_HEADER = '3440 1720'
-    SHORT_GAP = f'{PULSE} 25000'
-    LONG_GAP = f'{PULSE} 35500'
+    SHORT_GAP = '{} 25000'.format(PULSE)
+    LONG_GAP = '{} 35500'.format(PULSE)
 
     def _get_lsb_binary_string(self, frame):
         # convert to binary byte string and reverse it
@@ -372,8 +373,7 @@ class DaikinLIRC:
         frame_one = self._get_frame_codes(message.frame_one)
         frame_two = self._get_frame_codes(message.frame_two)
         frame_three = self._get_frame_codes(message.frame_three)
-
-        return f"""begin remote
+        template = Template("""begin remote
     name    daikin-pi
     flags   RAW_CODES
     eps     30
@@ -381,24 +381,34 @@ class DaikinLIRC:
     gap     34978
     begin raw_codes
         name dynamic-signal
-        {self.ZERO}
-        {self.ZERO}
-        {self.ZERO}
-        {self.ZERO}
-        {self.ZERO}
-        {self.SHORT_GAP}
-        {self.FRAME_HEADER}
-        {frame_one}
-        {self.LONG_GAP}
-        {self.FRAME_HEADER}
-        {frame_two}
-        {self.LONG_GAP}
-        {self.FRAME_HEADER}
-        {frame_three}
-        {self.PULSE}
+        {{zero}}
+        {{zero}}
+        {{zero}}
+        {{zero}}
+        {{zero}}
+        {{short_gap}}
+        {{frame_header}}
+        {{frame_one}}
+        {{long_gap}}
+        {{frame_header}}
+        {{frame_two}}
+        {{long_gap}}
+        {{frame_header}}
+        {{frame_three}}
+        {{pulse}}
     end raw_codes
 end remote
-        """
+        """)
+        return template.render(
+            zero=self.ZERO,
+            pulse=self.PULSE,
+            frame_header=self.FRAME_HEADER,
+            short_gap=self.SHORT_GAP,
+            long_gap=self.LONG_GAP,
+            frame_one=frame_one,
+            frame_two=frame_two,
+            frame_three=frame_three,
+        )
 
     def transmit(self, config):
 

@@ -41,5 +41,15 @@ def main():
     # print(state.serialize())
 
 
+def test_template():
+    state = DaikinState(power=True, temperature=29, ac_mode=AC_MODE.HEAT)
+    message = DaikinMessage(state)
+    lirc = DaikinLIRC()
+
+    config = lirc.get_config(message)
+    print(config)
+
+
 if __name__ == '__main__':
-    main()
+    test_template()
+    # main()
