@@ -1,6 +1,10 @@
 import subprocess
+import os
 from enum import Enum
+import json
 from jinja2 import Template
+import logging
+logger = logging.getLogger(__name__)
 
 
 class AC_MODE(Enum):
@@ -47,28 +51,28 @@ class DaikinState:
             powerful=False,
     ):
 
-        self._power = power
-        self._temperature = temperature
-        self._ac_mode = ac_mode
-        self._fan_mode = fan_mode
-        self._swing_vertical = swing_vertical
-        self._swing_horizontal = swing_horizontal
-        self._economy = economy
-        self._comfort = comfort
-        self._powerful = powerful
-        self._timer = None  # Not Implemented
+        self.power = power
+        self.temperature = temperature
+        self.ac_mode = ac_mode
+        self.fan_mode = fan_mode
+        self.swing_vertical = swing_vertical
+        self.swing_horizontal = swing_horizontal
+        self.economy = economy
+        self.comfort = comfort
+        self.powerful = powerful
+        self.timer = None  # Not Implemented
 
     @property
     def power(self):
-        return self._power
+        return self.__power
 
     @power.setter
     def power(self, value):
-        self._power = bool(value)
+        self.__power = bool(value)
 
     @property
     def temperature(self):
-        return self._temperature
+        return self.__temperature
 
     @temperature.setter
     def temperature(self, value):
@@ -77,85 +81,88 @@ class DaikinState:
         if value > 30:
             value = 30
 
-        self._temperature = value
+        self.__temperature = value
 
     @property
     def ac_mode(self):
-        return self._ac_mode
+        return self.__ac_mode
 
     @ac_mode.setter
     def ac_mode(self, value):
         if value not in AC_MODE:
             value = AC_MODE.AUTO
 
-        self._ac_mode = value
+        self.__ac_mode = value
 
     @property
     def fan_mode(self):
-        return self._fan_mode
+        return self.__fan_mode
 
     @fan_mode.setter
     def fan_mode(self, value):
         if value not in FAN_MODE:
             value = FAN_MODE.AUTO
 
-        self._fan_mode = value
+        self.__fan_mode = value
 
     @property
     def swing_vertical(self):
-        return self._swing_vertical
+        return self.__swing_vertical
 
     @swing_vertical.setter
     def swing_vertical(self, value):
-        self._swing_vertical = bool(value)
+        self.__swing_vertical = bool(value)
 
     @property
     def swing_horizontal(self):
-        return self._swing_horizontal
+        return self.__swing_horizontal
 
     @swing_horizontal.setter
     def swing_horizontal(self, value):
-        self._swing_horizontal = bool(value)
+        self.__swing_horizontal = bool(value)
 
     @property
     def economy(self):
-        return self._economy
+        return self.__economy
 
     @economy.setter
     def economy(self, value):
-        self._economy = bool(value)
+        self.__economy = bool(value)
 
     @property
     def powerful(self):
-        return self._powerful
+        return self.__powerful
 
     @powerful.setter
     def powerful(self, value):
-        self._powerful = bool(value)
+        self.__powerful = bool(value)
 
     @property
     def comfort(self):
-        return self._comfort
-
-    @property
-    def timer(self):
-        return self._timer
+        return self.__comfort
 
     @comfort.setter
     def comfort(self, value):
-        self._comfort = bool(value)
+        self.__comfort = bool(value)
+
+    @property
+    def timer(self):
+        return self.__timer
 
     def serialize(self):
+        print('debug')
+        print(self.ac_mode)
+        print(self.fan_mode)
         return {
-            'power': self._power,
-            'temperature': self._temperature,
-            'ac_mode': self._ac_mode.name,
-            'fan_mode': self._fan_mode.name,
-            'swing_vertical': self._swing_vertical,
-            'swing_horizontal': self._swing_horizontal,
-            'economy': self._economy,
-            'comfort': self._comfort,
-            'powerful': self._powerful,
+            'power': self.power,
+            'temperature': self.temperature,
+            'ac_mode': self.ac_mode.name,
+            'fan_mode': self.fan_mode.name,
+            'swing_vertical': self.swing_vertical,
+            'swing_horizontal': self.swing_horizontal,
+            'economy': self.economy,
+            'comfort': self.comfort,
+            'powerful': self.powerful,
         }
 
     @classmethod
@@ -421,3 +428,105 @@ end remote
         subprocess.check_output(['sudo', 'service', 'lircd', 'restart'])
         subprocess.check_output(
             ['irsend', 'SEND_ONCE', 'daikin-pi', 'dynamic-signal'])
+
+
+class DaikinController:
+    def __init__(self,
+                 storage_file=None,
+                 autosave=False,
+                 autotransmit=False,
+                 lirc=None):
+        self.autotransmit = autotransmit
+        self.autosave = autosave
+        self.storage_file = os.path.join(os.path.dirname(__file__),
+                                         '../data/config.json')
+        self.lirc = lirc or DaikinLIRC()
+
+    def save(self, state):
+        with open(self.storage_file, 'w') as f:
+            print('saving...')
+            print(state.temperature)
+            print(state.serialize())
+            json.dump(state.serialize(), f)
+
+    def load(self):
+        with open(self.storage_file, 'r') as f:
+            data = None
+            try:
+                data = json.load(f)
+            except:
+                pass
+
+        return DaikinState.deserialize(data) if data else DaikinState()
+
+    def transmit(self, state):
+        message = DaikinMessage(state)
+        config = self.lirc.get_config(message)
+        self.lirc.transmit(config)
+
+    def set_state(self, state):
+        if self.autosave:
+            self.save(state)
+        if self.autotransmit:
+            self.transmit(state)
+        return state
+
+    def set_temperature(self, degrees):
+        state = self.load()
+        state.temperature = degrees
+        self.set_state(state)
+        return state
+
+    def set_power(self, power):
+        state = self.load()
+        state.power = power
+        self.set_state(state)
+        return state
+
+    def set_mode(self, mode):
+        state = self.load()
+        state.ac_mode = mode
+        self.set_state(state)
+        return state
+
+    def set_fan(self, fan_mode):
+        state = self.load()
+        state.fan_mode = fan_mode
+        self.set_state(state)
+        return state
+
+    def set_swing(self, vertical=False, horizontal=False):
+        state = self.load()
+        state.swing_vertical = vertical
+        state.swing_horizontal = horizontal
+        self.set_state(state)
+        return state
+
+    def set_swing_vertical(self, value):
+        state = self.load()
+        state.swing_vertical = value
+        self.set_state(state)
+        return state
+
+
+"""
+class AC_MODE(Enum):
+    AUTO = 0x0
+    DRY = 0x2
+    COOL = 0x3
+    HEAT = 0x4
+    FAN = 0x6
+
+
+class FAN_MODE(Enum):
+    AUTO = 0xa
+    SILENT = 0xb
+
+    # Speed is technically a separate frame
+    # if manual, speed is relevant
+    ONE = 0x3
+    TWO = 0x4
+    THREE = 0x5
+    FOUR = 0x6
+    FIVE = 0x7
+"""
