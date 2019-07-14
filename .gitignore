@@ -5,3 +5,4 @@ src/daikin-pi.lircd.conf
 data/
 untitled.sublime-project
 untitled.sublime-workspace
+*.pyc
