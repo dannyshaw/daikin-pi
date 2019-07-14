@@ -1,4 +1,4 @@
-from daikin import DaikinMessage, DaikinState, DaikinLIRC, AC_MODE, FAN_MODE
+from daikin.daikin import DaikinMessage, DaikinState, DaikinLIRC, AC_MODE, FAN_MODE
 import json
 
 CONFIG_FILE_NAME = '../data/config.json'

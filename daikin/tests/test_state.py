@@ -1,5 +1,5 @@
 from unittest import TestCase
-from .daikin import DaikinMessage, DaikinState
+from daikin.daikin import DaikinMessage, DaikinState
 
 
 def get_hex(frame):

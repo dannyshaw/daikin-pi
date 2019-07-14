@@ -1,16 +1,15 @@
-from setuptools import setup, find_packages
+from setuptools import setup
 
 setup(
-    name='Daikin Pi',
-    url='https://github.com/dannyshaw/daikin-pi',
+    name='daikin-pi',
+    version='0.1',
+    description='IR Sender and MQTT Client for Daikin Split System AC on RasPi',
+    url='http://github.com/dannyshaw/daikin-pi',
     author='Danny Shaw',
     author_email='code@dannyshaw.io',
-    packages=find_packages(),
-    install_requires=['flask'],
-    classifiers=['Programming Language :: Python :: 3.5'],
-    version='0.1',
     license='MIT',
-    description=
-    'An IR Gateway for a Daikin Split System AC, (requires lircd configured)',
+    packages=['daikin-pi'],
     zip_safe=False,
-    extras_require={'testing': ['pytest']})
+    test_suite='nose.collector',
+    tests_require=['nose'],
+)
