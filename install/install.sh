@@ -4,10 +4,9 @@ set -euo pipefail
 
 SCRIPT_DIR="${BASH_SOURCE%/*}"
 
-if [ $(id -u) != "0" ]
-then
-    echo "run as root"
-    exit 1
+if [ $EUID != 0 ]; then
+    sudo "$0" "$@"
+    exit $?
 fi
 
 apt install \
