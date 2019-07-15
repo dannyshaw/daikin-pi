@@ -50,18 +50,6 @@ lirc_rpi gpio_in_pin=23 gpio_out_pin=22
 
 Reboot
 
-### Install Python3.6 (from source)
-
-```
-sudo apt-get install python3-dev libffi-dev libssl-dev -y
-wget https://www.python.org/ftp/python/3.6.5/Python-3.6.5.tar.xz
-tar xf Python-3.6.5.tar.xz
-cd Python-3.6.5/
-./configure
-make
-sudo make altinstall
-```
-
 ### Test LIRC Circuit with a simple IR signal to test it works
 
 Find a remote for your tv or something here or elsewhere on the web
@@ -102,11 +90,10 @@ sudo irsend SEND_ONCE daikin-pi test-signal
 Parts of this roadmap may well be built as separate projects.
 This is more about my roadmap towards home automation with an old shitty house and appliances.
 
-- Complete state machine flask server
+- [x] Complete state machine flask server
+- [x] Write MQTT Adapter for both rx and tx messages to communicate with Home Assistant (
 - Build IR rx circuit on Pi
 - Bridge IR rx signal decoding to update server state
-- Write MQTT Adapter for both rx and tx messages to communicate with Home Assistant (
-	- currently an assumption of how to connect this to hass
 - Build Temperature & Humidity Sensor
 	- Add those sensors to mqtt messaging
 
