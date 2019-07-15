@@ -38,7 +38,8 @@ climate:
 """
 logger = logging.getLogger(__name__)
 
-MQTT_BROKER = os.environ.get('MQTT_BROKER', '10.245.52.187')
+# MQTT_BROKER = os.environ.get('MQTT_BROKER', '10.245.52.187')
+MQTT_BROKER = os.environ.get('MQTT_BROKER', 'localhost')
 MQTT_USER = os.environ.get('MQTT_USER', 'mqtt_user')
 MQTT_PASS = os.environ.get('MQTT_PASS', 'mqtt_password')
 MQTT_TOPIC_PREFIX = 'livingroom/ac/'
@@ -111,7 +112,7 @@ def on_message(client, userdata, msg):
             msg.topic, msg.payload))
 
 
-def get_controller(autotransmit=False):
+def get_controller(autotransmit=True):
     daikin = DaikinController(autosave=True, autotransmit=autotransmit)
     return daikin
 
@@ -129,7 +130,7 @@ def set_temperature(value):
 
 def set_mode(value):
     power_on = value != 'off'
-    daikin = get_controller(autotransmit=False)
+    daikin = get_controller()
     state = daikin.set_power(power_on)
 
     if power_on:

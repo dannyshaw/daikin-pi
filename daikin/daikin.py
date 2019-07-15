@@ -6,6 +6,14 @@ from jinja2 import Template
 import logging
 logger = logging.getLogger(__name__)
 
+# TODO: use os.tempfile or something
+DAIKIN_LIRC_CONFIG_TMP = '/tmp/daikin-pi.lircd.conf'
+LIRC_CONFIG_COPY_CMD = [
+    'sudo', 'cp', DAIKIN_LIRC_CONFIG_TMP, '/etc/lirc/lircd.conf.d/'
+]
+LIRC_RESTART = ['sudo', 'service', 'lircd', 'restart']
+LIRC_SEND_COMMAND = ['irsend', 'SEND_ONCE', 'daikin-pi', 'dynamic-signal']
+
 
 class AC_MODE(Enum):
     AUTO = 0x0
@@ -419,15 +427,12 @@ end remote
 
     def transmit(self, config):
 
-        with open('daikin-pi.lircd.conf', 'w') as config_file:
+        with open(DAIKIN_LIRC_CONFIG_TMP, 'w') as config_file:
             config_file.write(config)
 
-        subprocess.check_output([
-            'sudo', 'cp', './daikin-pi.lircd.conf', '/etc/lirc/lircd.conf.d/'
-        ])
-        subprocess.check_output(['sudo', 'service', 'lircd', 'restart'])
-        subprocess.check_output(
-            ['irsend', 'SEND_ONCE', 'daikin-pi', 'dynamic-signal'])
+        subprocess.check_output(LIRC_CONFIG_COPY_CMD)
+        subprocess.check_output(LIRC_RESTART)
+        subprocess.check_output(LIRC_SEND_COMMAND)
 
 
 class DaikinController:
