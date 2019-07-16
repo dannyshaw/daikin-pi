@@ -120,6 +120,11 @@ This is more about my roadmap towards home automation with an old shitty house a
 - https://github.com/arendst/Sonoff-Tasmota/issues/3423
 - https://www.raspberrypi.org/forums/viewtopic.php?t=79978
 
+FIX
+- https://www.raspberrypi.org/forums/viewtopic.php?t=235918
+- https://github.com/AnaviTechnology/anavi-docs/blob/master/anavi-infrared-phat/anavi-infrared-phat.md#setting-up-lirc
+
+
 
 #### Home automation
 
