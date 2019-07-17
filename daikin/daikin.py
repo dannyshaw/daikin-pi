@@ -446,9 +446,7 @@ class DaikinController:
 
     def save(self, state):
         with open(self.storage_file, 'w') as f:
-            print('saving...')
-            print(state.temperature)
-            print(state.serialize())
+            logger.info('writing to {}'.format(self.storage_file))
             json.dump(state.serialize(), f)
 
     def load(self):
