@@ -462,6 +462,7 @@ class DaikinController:
     def transmit(self, state):
         message = DaikinMessage(state)
         config = self.lirc.get_config(message)
+        logger.info('Transmitting to LIRC')
         self.lirc.transmit(config)
 
     def set_state(self, state):
