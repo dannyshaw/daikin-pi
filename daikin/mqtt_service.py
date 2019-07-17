@@ -113,8 +113,8 @@ def on_message(client, userdata, msg):
 
 
 def get_controller(autotransmit=True):
-    daikin = DaikinController(autosave=True, autotransmit=autotransmit)
-    return daikin
+    controller = DaikinController(autosave=True, autotransmit=autotransmit)
+    return controller
 
 
 def set_temperature(value):
@@ -124,15 +124,15 @@ def set_temperature(value):
     except ValueError:
         pass
 
-    daikin = get_controller()
-    daikin.set_temperature(degrees)
+    controller = get_controller()
+    controller.set_temperature(degrees)
 
 
 def set_mode(value):
     logger.info('setting power to {}'.format(value))
     power_on = value != 'off'
-    daikin = get_controller()
-    state = daikin.set_power(power_on)
+    controller = get_controller()
+    state = controller.set_power(power_on)
 
     if power_on:
         mode = {
@@ -142,9 +142,9 @@ def set_mode(value):
             'heat': AC_MODE.HEAT,
             'fan_only': AC_MODE.FAN,
         }.get(value, 'auto')
-        state = daikin.set_mode(mode)
+        state = controller.set_mode(mode)
 
-    daikin.transmit(state)
+    controller.transmit(state)
 
 
 def set_fan(value):
@@ -156,16 +156,16 @@ def set_fan(value):
         'high': FAN_MODE.FIVE,
     }.get(value, 'auto')
 
-    daikin = get_controller()
-    daikin.set_fan(fan)
+    controller = get_controller()
+    controller.set_fan(fan)
 
 
 def set_swing(value):
     logger.info('setting swing mode to {}'.format(value))
     vertical = value in ['both', 'vertical']
     horizontal = value in ['both', 'horizontal']
-    daikin = get_controller()
-    daikin.set_swing(vertical=vertical, horizontal=horizontal)
+    controller = get_controller()
+    controller.set_swing(vertical=vertical, horizontal=horizontal)
 
 
 if __name__ == '__main__':
