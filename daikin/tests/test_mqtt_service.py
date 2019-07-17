@@ -17,48 +17,54 @@ class TestMQTTDaikinSetters(TestCase):
         dmock = MagicMock(spec=DaikinController)
         daikin.return_value = dmock
         set_temperature(20)
-        dmock.set_temperature.assert_called_with(20)
+        dmock.update.assert_called_with(temperature=20)
         set_temperature(18)
-        dmock.set_temperature.assert_called_with(18)
+        dmock.update.assert_called_with(temperature=18)
         set_temperature(30)
-        dmock.set_temperature.assert_called_with(30)
+        dmock.update.assert_called_with(temperature=30)
 
     def test_set_mode(self, daikin):
         dmock = MagicMock(spec=DaikinController)
         daikin.return_value = dmock
 
+        set_mode('off')
+        dmock.update.assert_called_with(power=False)
         set_mode('auto')
-        dmock.set_mode.assert_called_with(AC_MODE.AUTO)
+        dmock.update.assert_called_with(power=True, ac_mode=AC_MODE.AUTO)
         set_mode('cool')
-        dmock.set_mode.assert_called_with(AC_MODE.COOL)
+        dmock.update.assert_called_with(power=True, ac_mode=AC_MODE.COOL)
         set_mode('heat')
-        dmock.set_mode.assert_called_with(AC_MODE.HEAT)
-        set_mode('fan')
-        dmock.set_mode.assert_called_with(AC_MODE.FAN)
+        dmock.update.assert_called_with(power=True, ac_mode=AC_MODE.HEAT)
+        set_mode('fan_only')
+        dmock.update.assert_called_with(power=True, ac_mode=AC_MODE.FAN)
         set_mode('dry')
-        dmock.set_mode.assert_called_with(AC_MODE.DRY)
+        dmock.update.assert_called_with(power=True, ac_mode=AC_MODE.DRY)
 
     def test_set_fan(self, daikin):
         dmock = MagicMock(spec=DaikinController)
         daikin.return_value = dmock
         set_fan('auto')
-        dmock.set_fan.assert_called_with(FAN_MODE.AUTO)
+        dmock.update.assert_called_with(fan_mode=FAN_MODE.AUTO)
         set_fan('low')
-        dmock.set_fan.assert_called_with(FAN_MODE.ONE)
+        dmock.update.assert_called_with(fan_mode=FAN_MODE.ONE)
         set_fan('medium')
-        dmock.set_fan.assert_called_with(FAN_MODE.THREE)
+        dmock.update.assert_called_with(fan_mode=FAN_MODE.THREE)
         set_fan('high')
-        dmock.set_fan.assert_called_with(FAN_MODE.FIVE)
+        dmock.update.assert_called_with(fan_mode=FAN_MODE.FIVE)
 
     def test_set_swing(self, daikin):
         dmock = MagicMock(spec=DaikinController)
         daikin.return_value = dmock
 
         set_swing('both')
-        dmock.set_swing.assert_called_with(vertical=True, horizontal=True)
+        dmock.update.assert_called_with(swing_vertical=True,
+                                        swing_horizontal=True)
         set_swing('vertical'),
-        dmock.set_swing.assert_called_with(vertical=True, horizontal=False)
+        dmock.update.assert_called_with(swing_vertical=True,
+                                        swing_horizontal=False)
         set_swing('horizontal'),
-        dmock.set_swing.assert_called_with(vertical=False, horizontal=True)
+        dmock.update.assert_called_with(swing_vertical=False,
+                                        swing_horizontal=True)
         set_swing('off'),
-        dmock.set_swing.assert_called_with(vertical=False, horizontal=False)
+        dmock.update.assert_called_with(swing_vertical=False,
+                                        swing_horizontal=False)

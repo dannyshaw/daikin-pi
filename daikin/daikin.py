@@ -49,7 +49,7 @@ class DaikinState:
     def __init__(
             self,
             power=False,
-            temperature=20,
+            temperature=19,
             ac_mode=AC_MODE.AUTO,
             fan_mode=FAN_MODE.AUTO,
             swing_vertical=False,
@@ -433,10 +433,16 @@ end remote
 
 
 class DaikinController:
+    """
+        A simple state controller for the Daikin
+        Persists the state each time it is set and allows incremental changes
+        (Does the job of the remote control persistence)
+    """
+
     def __init__(self,
                  storage_file=None,
-                 autosave=False,
-                 autotransmit=False,
+                 autosave=True,
+                 autotransmit=True,
                  lirc=None):
         self.autotransmit = autotransmit
         self.autosave = autosave
@@ -454,7 +460,7 @@ class DaikinController:
             data = None
             try:
                 data = json.load(f)
-            except:
+            except ValueError:
                 pass
 
         return DaikinState.deserialize(data) if data else DaikinState()
@@ -475,41 +481,36 @@ class DaikinController:
             self.transmit(state)
         return state
 
-    def set_temperature(self, degrees):
+    def update(
+            self,
+            temperature=None,
+            ac_mode=None,
+            fan_mode=None,
+            swing_vertical=None,
+            swing_horizontal=None,
+            powerful=None,
+    ):
         state = self.load()
-        state.temperature = degrees
-        self.set_state(state)
-        return state
+        if temperature is not None:
+            state.temperature = temperature
 
-    def set_power(self, power):
-        state = self.load()
-        state.power = power
-        self.set_state(state)
-        return state
+        if ac_mode is not None:
+            state.ac_mode = ac_mode
 
-    def set_mode(self, mode):
-        state = self.load()
-        state.ac_mode = mode
-        self.set_state(state)
-        return state
+        if fan_mode is not None:
+            state.fan_mode = fan_mode
 
-    def set_fan(self, fan_mode):
-        state = self.load()
-        state.fan_mode = fan_mode
-        self.set_state(state)
-        return state
+        if swing_horizontal is not None:
+            state.swing_horizontal = swing_horizontal
 
-    def set_swing(self, vertical=False, horizontal=False):
-        state = self.load()
-        state.swing_vertical = vertical
-        state.swing_horizontal = horizontal
-        self.set_state(state)
-        return state
+        if swing_vertical is not None:
+            state.swing_vertical = swing_vertical
 
-    def set_swing_vertical(self, value):
-        state = self.load()
-        state.swing_vertical = value
+        if powerful is not None:
+            state.powerful = powerful
+
         self.set_state(state)
+
         return state
 
 

@@ -28,7 +28,7 @@ climate:
       - 'high'
       - 'medium'
       - 'low'
-    power_command_topic: 'livingroom/ac/power/set'
+    power_command_topic: 'livingroom/ac/powerful/set'
     mode_command_topic: 'livingroom/ac/mode/set'
     temperature_command_topic: 'livingroom/ac/temperature/set'
     fan_mode_command_topic: 'livingroom/ac/fan/set'
@@ -45,7 +45,7 @@ MQTT_PASS = os.environ.get('MQTT_PASS', 'mqtt_password')
 MQTT_TOPIC_PREFIX = 'livingroom/ac/'
 SET_TEMPERATURE_TOPIC = os.environ.get('SET_TEMPERATURE_TOPIC',
                                        'temperature/set')
-SET_POWER_TOPIC = os.environ.get('SET_POWER_TOPIC', 'power/set')
+SET_POWER_TOPIC = os.environ.get('SET_POWER_TOPIC', 'powerful/set')
 SET_MODE_TOPIC = os.environ.get('SET_MODE_TOPIC', 'mode/set')
 SET_FAN_TOPIC = os.environ.get('SET_FAN_TOPIC', 'fan/set')
 SET_SWING_TOPIC = os.environ.get('SET_SWING_TOPIC', 'swing/set')
@@ -107,14 +107,16 @@ def on_message(client, userdata, msg):
         set_fan(msg.payload.decode('utf-8'))
     elif msg.topic == get_control_topic(SET_SWING_TOPIC):
         set_swing(msg.payload.decode('utf-8'))
+    elif msg.topic == get_control_topic(SET_POWER_TOPIC):
+        set_powerful(msg.payload.decode('utf-8'))
     else:
         logger.warning('Unknown message: {}: {}'.format(
             msg.topic, msg.payload))
 
 
-def get_controller(autotransmit=True):
-    controller = DaikinController(autosave=True, autotransmit=autotransmit)
-    return controller
+def send_daikin_state(**values):
+    controller = DaikinController()
+    controller.update(**values)
 
 
 def set_temperature(value):
@@ -124,27 +126,23 @@ def set_temperature(value):
     except ValueError:
         pass
 
-    controller = get_controller()
-    controller.set_temperature(degrees)
+    send_daikin_state(temperature=degrees)
 
 
 def set_mode(value):
     logger.info('setting power to {}'.format(value))
-    power_on = value != 'off'
-    controller = get_controller()
-    state = controller.set_power(power_on)
+    values = {"power": value != 'off'}
 
-    if power_on:
-        mode = {
+    if values["power"]:
+        values["ac_mode"] = {
             'auto': AC_MODE.AUTO,
             'dry': AC_MODE.DRY,
             'cool': AC_MODE.COOL,
             'heat': AC_MODE.HEAT,
             'fan_only': AC_MODE.FAN,
-        }.get(value, 'auto')
-        state = controller.set_mode(mode)
+        }.get(value, AC_MODE.AUTO)
 
-    controller.transmit(state)
+    send_daikin_state(**values)
 
 
 def set_fan(value):
@@ -154,18 +152,22 @@ def set_fan(value):
         'low': FAN_MODE.ONE,
         'medium': FAN_MODE.THREE,
         'high': FAN_MODE.FIVE,
-    }.get(value, 'auto')
+    }.get(value, FAN_MODE.AUTO)
 
-    controller = get_controller()
-    controller.set_fan(fan)
+    send_daikin_state(fan_mode=fan)
 
 
 def set_swing(value):
     logger.info('setting swing mode to {}'.format(value))
     vertical = value in ['both', 'vertical']
     horizontal = value in ['both', 'horizontal']
-    controller = get_controller()
-    controller.set_swing(vertical=vertical, horizontal=horizontal)
+    send_daikin_state(swing_vertical=vertical, swing_horizontal=horizontal)
+
+
+def set_powerful(value):
+    logger.info('setting powerful mode to {}'.format(value))
+    powerful = value == 'ON'
+    send_daikin_state(powerful=powerful)
 
 
 if __name__ == '__main__':

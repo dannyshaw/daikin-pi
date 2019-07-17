@@ -93,6 +93,11 @@ sudo irsend SEND_ONCE daikin-pi test-signal
 StartLimitIntervalSec=0
 StartLimitBurst=0
 
+###
+
+Run the MQTT Service
+
+
 ## Roadmap
 
 Parts of this roadmap may well be built as separate projects.
