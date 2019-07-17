@@ -38,8 +38,8 @@ climate:
 """
 logger = logging.getLogger(__name__)
 
-# MQTT_BROKER = os.environ.get('MQTT_BROKER', '10.245.52.187')
-MQTT_BROKER = os.environ.get('MQTT_BROKER', 'localhost')
+MQTT_BROKER = os.environ.get('MQTT_BROKER', '10.245.52.187')
+# MQTT_BROKER = os.environ.get('MQTT_BROKER', 'localhost')
 MQTT_USER = os.environ.get('MQTT_USER', 'mqtt_user')
 MQTT_PASS = os.environ.get('MQTT_PASS', 'mqtt_password')
 MQTT_TOPIC_PREFIX = 'livingroom/ac/'
@@ -118,6 +118,7 @@ def get_controller(autotransmit=True):
 
 
 def set_temperature(value):
+    logger.info('setting temperature to {}'.format(value))
     try:
         degrees = int(float(value))
     except ValueError:
@@ -125,10 +126,10 @@ def set_temperature(value):
 
     daikin = get_controller()
     daikin.set_temperature(degrees)
-    print('here')
 
 
 def set_mode(value):
+    logger.info('setting power to {}'.format(value))
     power_on = value != 'off'
     daikin = get_controller()
     state = daikin.set_power(power_on)
@@ -139,7 +140,7 @@ def set_mode(value):
             'dry': AC_MODE.DRY,
             'cool': AC_MODE.COOL,
             'heat': AC_MODE.HEAT,
-            'fan': AC_MODE.FAN,
+            'fan_only': AC_MODE.FAN,
         }.get(value, 'auto')
         state = daikin.set_mode(mode)
 
@@ -147,6 +148,7 @@ def set_mode(value):
 
 
 def set_fan(value):
+    logger.info('setting fan to {}'.format(value))
     fan = {
         'auto': FAN_MODE.AUTO,
         'low': FAN_MODE.ONE,
@@ -159,6 +161,7 @@ def set_fan(value):
 
 
 def set_swing(value):
+    logger.info('setting swing mode to {}'.format(value))
     vertical = value in ['both', 'vertical']
     horizontal = value in ['both', 'horizontal']
     daikin = get_controller()

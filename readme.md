@@ -85,6 +85,14 @@ sudo systemctl restart lircd
 sudo irsend SEND_ONCE daikin-pi test-signal
 ```
 
+### Modify `lircd.service` to disable restart limits
+
+```
+[Service]
+...
+StartLimitIntervalSec=0
+StartLimitBurst=0
+
 ## Roadmap
 
 Parts of this roadmap may well be built as separate projects.

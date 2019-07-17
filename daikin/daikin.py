@@ -11,7 +11,7 @@ DAIKIN_LIRC_CONFIG_TMP = '/tmp/daikin-pi.lircd.conf'
 LIRC_CONFIG_COPY_CMD = [
     'sudo', 'cp', DAIKIN_LIRC_CONFIG_TMP, '/etc/lirc/lircd.conf.d/'
 ]
-LIRC_RESTART = ['sudo', 'service', 'lircd', 'restart']
+LIRC_RESTART = ['sudo', 'systemctl', 'restart', 'lircd']
 LIRC_SEND_COMMAND = ['irsend', 'SEND_ONCE', 'daikin-pi', 'dynamic-signal']
 
 
@@ -158,9 +158,6 @@ class DaikinState:
         return self.__timer
 
     def serialize(self):
-        print('debug')
-        print(self.ac_mode)
-        print(self.fan_mode)
         return {
             'power': self.power,
             'temperature': self.temperature,
