@@ -446,7 +446,7 @@ class DaikinController:
 
     def save(self, state):
         with open(self.storage_file, 'w') as f:
-            logger.info('writing to {}'.format(self.storage_file))
+            print('writing to {}'.format(self.storage_file))
             json.dump(state.serialize(), f)
 
     def load(self):
@@ -462,16 +462,16 @@ class DaikinController:
     def transmit(self, state):
         message = DaikinMessage(state)
         config = self.lirc.get_config(message)
-        logger.info('Transmitting to LIRC')
+        print('Transmitting to LIRC')
         self.lirc.transmit(config)
 
     def set_state(self, state):
-        logger.info('setting state')
+        print('setting state')
         if self.autosave:
-            logger.info('autosaving')
+            print('autosaving')
             self.save(state)
         if self.autotransmit:
-            logger.info('autotransmitting')
+            print('autotransmitting')
             self.transmit(state)
         return state
 
