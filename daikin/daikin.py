@@ -466,9 +466,12 @@ class DaikinController:
         self.lirc.transmit(config)
 
     def set_state(self, state):
+        logger.info('setting state')
         if self.autosave:
+            logger.info('autosaving')
             self.save(state)
         if self.autotransmit:
+            logger.info('autotransmitting')
             self.transmit(state)
         return state
 
