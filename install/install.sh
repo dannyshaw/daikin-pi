@@ -10,12 +10,12 @@ fi
 
 apt update
 apt install \
-  git \
-  python-pip \
+  tmux \
+  lirc \
   vim \
   -y
 
-
+wget -O - https://bootstrap.pypa.io/get-pip.py | python
 pip install virtualenv
 virtualenv ~/.venvs/daikin
 
@@ -23,36 +23,29 @@ source ~/.venvs/daikin/bin/activate
 
 pip install -r ${SCRIPT_DIR}/requirements.txt
 
-# cp ${SCRIPT_DIR}/hardware.conf /etc/lirc/hardware.conf
-# echo "lirc_dev" >> /etc/modules
-# echo "lirc_rpi gpio_in_pin=23 gpio_out_pin=22" >> /etc/modules
-# echo "dtoverlay=lirc-rpi,gpio_in_pin=23,gpio_out_pin=22" >> /boot/config.txt
+# create json state file for daikin pi
+if [ ! -f "${SCRIPT_DIR}/../data/config.json" ]; then
+  mkdir -p ${SCRIPT_DIR}/../data
+  echo "{}" > ${SCRIPT_DIR}/../data/config.json
+fi
 
 
-echo "--------"
-echo "Patching LIRC"
-grep '^deb ' /etc/apt/sources.list | sed 's/^deb/deb-src/g' > /etc/apt/sources.list.d/deb-src.list
-apt update
-apt install \
-  devscripts \
-  dh-systemd \
-  -y
+echo "-- Configuring LIRC"
+if grep -q "lirc_dev" /etc/modules;
+  then
+    echo "lirc_dev" >> /etc/modules
+fi
+if grep -q "^lirc_rpi" /etc/modules;
+  then
+    echo "lirc_rpi gpio_in_pin=23 gpio_out_pin=22" >> /etc/modules
+fi
 
-apt build-dep lirc
-mkdir ~/build_lirc
-cd ~/build_lirc
-apt source lirc
-wget https://raw.githubusercontent.com/neuralassembly/raspi/master/lirc-gpio-ir.patch
-patch -p0 -i lirc-gpio-ir.patch
-cd lirc-0.9.4c
-debuild -uc -us -b
-cd ..
-sudo apt install ./liblirc0_0.9.4c-9_armhf.deb ./liblirc-client0_0.9.4c-9_armhf.deb ./lirc_0.9.4c-9_armhf.deb
-
-
+if grep -q "^dtoverlay=lirc-rpi" /boot/config.txt;
+  then
+    echo "dtoverlay=lirc-rpi,gpio_in_pin=23,gpio_out_pin=22" >> /boot/config.txt
+fi
 
 echo "--------"
 echo "Daikin Pi Successfully Installed!"
-echo "Ensure settings in daikin-pi/.env are set and reboot"
-
+echo "Reboot and test LIRC"
 echo "------------------------------"

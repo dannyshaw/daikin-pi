@@ -483,6 +483,7 @@ class DaikinController:
 
     def update(
             self,
+            power=None,
             temperature=None,
             ac_mode=None,
             fan_mode=None,
@@ -491,6 +492,10 @@ class DaikinController:
             powerful=None,
     ):
         state = self.load()
+
+        if power is not None:
+            state.power = power
+
         if temperature is not None:
             state.temperature = temperature
 

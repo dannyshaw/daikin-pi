@@ -1,8 +1,57 @@
 # Raspberry Pi IR Gateway for Daikin ARC remote control
 
+I wanted to be able to control my old Daikin split system from the internet. Specifically to be able to switch it on from the bedroom on a cold morning or on the way home if we're out of the house. This functionality comes with newer systems and there are 3rd party units available to do this but I was up for the challenge of implementing it myself.
+
+I went about building an IR transmitter gateway to send signals to the unit as though someone were pressing the remote.
+This could not have been done without standing on the shoulders of giants before me, specfically those who used an osciloscope and did the actual hard work of reverse engineering the IR Protocol.
+
+Split system AC's like Daikin have complex IR protocols. They do not send single button codes like a TV would receive (VOL_UP) etc. The full state of the air condioner is actually stored _on_ the remote control (so you can see the state on it). Because of this each transmission actually contains the entire state of the system in a long message. (Cool Mode, 19 Degrees, Vertical Swing On, etc).
+
+This means we cannot just have a pool of codes to send, (welll, you could store every single permutation of every setting i guess). But instead build up the state we'd like to set the AC to and generate the message of codes that need to be transmitted to the unit.
+
+This repository contains python modules to:
+
+   - Represent the Daikin state
+   - Represent that state as a binary message that the Daikin unit can receive
+   - Convert binary messages into an LIRC remote configuration (using IR pulse and gap lengths that the unit can receive)
+   - A persistance module to store the AC state in a JSON file
+   - A webserver to modify the state and transmit it
+   - An MQTT Client to react to MQTT Messages and control the state
+
 Tested on my split system which uses a remote with the model number `ARC433B70`
 
 ## Installation
+
+
+### Install Raspbian Stretch
+
+Install a fresh copy of Rasbian Stretch Lite (for Zero, you could use non lite for 3b+ or 4).
+
+NOTE: **It's important to have the linux kernel pinned to 4.14**
+
+So either don't run `apt upgrade` after install or ensure the kernel remains at 4.14 (see below)
+
+My current understanding (work in progress):
+Since Rasbian Buster (4.19) came out the modules for IR control changed from `lirc_rpi` to `gpio_ir_recv` and `gpio_ir_tx` (or something, check). However, the latest LIRC has not been upgraded to reflect these changes as yet. There are some patches floating around but pinning to 4.14 is the way I chose.
+
+If you do run `apt upgrade` and would like to roll back to 4.14 do this:
+```
+sudo apt install rpi-update
+sudo rpi-update a08ece3d48c3c40bf1b501772af9933249c11c5b  # last commit on 4.19
+```
+
+### Run Installation Script
+
+There's an installation script located in `install/install.sh`
+
+There's a statup script call run.sh which will auto run the mqtt service within a tmux session on boot
+This allows you to just plug it in and it'll connect to the server
+
+Add this line to `/etc/rc.local`:
+
+`/home/pi/daikin-pi/run.sh`
+
+
 
 ### Configure LIRC
 
@@ -18,30 +67,6 @@ Ensure this line in /boot/config.txt:
 dtoverlay=lirc-rpi,gpio_in_pin=23,gpio_out_pin=22,gpio_in_pull=up
 ```
 
-Edit or create /etc/lirc/hardware.conf
-```
-########################################################
-# /etc/lirc/hardware.conf
-#
-# Arguments which will be used when launching lircd
-LIRCD_ARGS="--uinput"
-# Don't start lircmd even if there seems to be a good config file
-# START_LIRCMD=false
-# Don't start irexec, even if a good config file seems to exist.
-# START_IREXEC=false
-# Try to load appropriate kernel modules
-LOAD_MODULES=true
-# Run "lircd --driver=help" for a list of supported drivers.
-DRIVER="default"
-# usually /dev/lirc0 is the correct setting for systems using udev
-DEVICE="/dev/lirc0"
-MODULES="lirc_rpi"
-# Default configuration files for your hardware if any
-LIRCD_CONF=""
-LIRCMD_CONF=""
-########################################################
-```
-
 Add these lines to /etc/modules
 ```
 lirc_dev
@@ -50,7 +75,7 @@ lirc_rpi gpio_in_pin=23 gpio_out_pin=22
 
 Reboot
 
-### Test LIRC Circuit with a simple IR signal to test it works
+## Test LIRC Circuit with a simple IR signal to test it works
 
 Find a remote for your tv or something here or elsewhere on the web
 http://lirc.sourceforge.net/remotes/
@@ -60,6 +85,8 @@ Copy it to
 
 Restart lirc
 `sudo systemctl restart lircd`
+
+
 
 Send a command to the remote
 `sudo irsend SEND_ONCE <remote-name> <command-name>`
@@ -85,17 +112,62 @@ sudo systemctl restart lircd
 sudo irsend SEND_ONCE daikin-pi test-signal
 ```
 
-### Modify `lircd.service` to disable restart limits
+### Configure Systemd to remove rate limit on restarting lircd service
+
+For some reason systemd by default restricts how often you can restart a service and we need to have no such restriction.
+
+`sudo vim /lib/systemd/system/lircd.service`
+
+Add the two lines below
 
 ```
 [Service]
 ...
 StartLimitIntervalSec=0
 StartLimitBurst=0
+```
+
 
 ###
 
 Run the MQTT Service
+
+
+## Home Assistant
+
+The MQTT Client was built to be used with Home Assistant.
+The [MQTT HVAC component](https://www.home-assistant.io/components/climate.mqtt/) can be configured to talk to the unit, this configuration is how mine is set up but you can adjust the :
+
+```
+# configuration.yaml
+
+climate:
+  - platform: mqtt
+    name: "Living Room"
+    initial: 20
+    modes:
+      - "off"
+      - "auto"
+      - "cool"
+      - "heat"
+      - "fan_only"
+    swing_modes:
+      - "both"
+      - "vertical"
+      - "horizonal"
+      - "off"
+    fan_modes:
+      - "high"
+      - "medium"
+      - "low"
+      - "auto"
+    power_command_topic: "livingroom/ac/power/set"
+    mode_command_topic: "livingroom/ac/mode/set"
+    temperature_command_topic: "livingroom/ac/temperature/set"
+    fan_mode_command_topic: "livingroom/ac/fan/set"
+    swing_mode_command_topic: "livingroom/ac/swing/set"
+    max_temp: 30
+    min_temp: 18
 
 
 ## Roadmap
@@ -137,6 +209,8 @@ FIX
 - https://www.raspberrypi.org/forums/viewtopic.php?t=235918
 - https://github.com/AnaviTechnology/anavi-docs/blob/master/anavi-infrared-phat/anavi-infrared-phat.md#setting-up-lirc
 
+New Circuit for Receiver and more powerful TX:
+https://upverter.com/design/alexbain/f24516375cfae8b9/open-source-universal-remote/#/
 
 
 #### Home automation
