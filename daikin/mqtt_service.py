@@ -45,7 +45,7 @@ MQTT_PASS = os.environ.get('MQTT_PASS', 'mqtt_password')
 MQTT_TOPIC_PREFIX = 'livingroom/ac/'
 SET_TEMPERATURE_TOPIC = os.environ.get('SET_TEMPERATURE_TOPIC',
                                        'temperature/set')
-SET_POWER_TOPIC = os.environ.get('SET_POWER_TOPIC', 'powerful/set')
+SET_POWER_TOPIC = os.environ.get('SET_POWER_TOPIC', 'power/set')
 SET_MODE_TOPIC = os.environ.get('SET_MODE_TOPIC', 'mode/set')
 SET_FAN_TOPIC = os.environ.get('SET_FAN_TOPIC', 'fan/set')
 SET_SWING_TOPIC = os.environ.get('SET_SWING_TOPIC', 'swing/set')
@@ -108,7 +108,7 @@ def on_message(client, userdata, msg):
     elif msg.topic == get_control_topic(SET_SWING_TOPIC):
         set_swing(msg.payload.decode('utf-8'))
     elif msg.topic == get_control_topic(SET_POWER_TOPIC):
-        set_powerful(msg.payload.decode('utf-8'))
+        set_power(msg.payload.decode('utf-8'))
     else:
         logger.warning('Unknown message: {}: {}'.format(
             msg.topic, msg.payload))
@@ -131,18 +131,15 @@ def set_temperature(value):
 
 def set_mode(value):
     logger.info('setting power to {}'.format(value))
-    values = {"power": value != 'off'}
+    ac_mode = {
+        'auto': AC_MODE.AUTO,
+        'dry': AC_MODE.DRY,
+        'cool': AC_MODE.COOL,
+        'heat': AC_MODE.HEAT,
+        'fan_only': AC_MODE.FAN,
+    }.get(value, AC_MODE.AUTO)
 
-    if values["power"]:
-        values["ac_mode"] = {
-            'auto': AC_MODE.AUTO,
-            'dry': AC_MODE.DRY,
-            'cool': AC_MODE.COOL,
-            'heat': AC_MODE.HEAT,
-            'fan_only': AC_MODE.FAN,
-        }.get(value, AC_MODE.AUTO)
-
-    send_daikin_state(**values)
+    send_daikin_state(ac_mode=ac_mode)
 
 
 def set_fan(value):
@@ -164,10 +161,10 @@ def set_swing(value):
     send_daikin_state(swing_vertical=vertical, swing_horizontal=horizontal)
 
 
-def set_powerful(value):
-    logger.info('setting powerful mode to {}'.format(value))
-    powerful = value == 'ON'
-    send_daikin_state(powerful=powerful)
+def set_power(value):
+    logger.info('setting power to {}'.format(value))
+    power = value == 'ON'
+    send_daikin_state(power=power)
 
 
 if __name__ == '__main__':
