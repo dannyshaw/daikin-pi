@@ -190,7 +190,7 @@ climate:
     swing_mode_command_topic: "livingroom/ac/swing/set"
     max_temp: 30
     min_temp: 18
-
+```
 
 ## Roadmap
 
@@ -206,7 +206,8 @@ This is more about my roadmap towards home automation with an old shitty house a
 
 
 
-### Resources
+### Resources (For this project and a load of other crap i'm interested in)
+
 
 #### IR/Pi/DaikinProtocol
 
