@@ -9,8 +9,17 @@ Split system AC's like Daikin have complex IR protocols. They do not send single
 
 This means we cannot just have a pool of codes to send, (welll, you could store every single permutation of every setting i guess). But instead build up the state we'd like to set the AC to and generate the message of codes that need to be transmitted to the unit.
 
-This repository contains python modules to:
+### How it works
 
+There is a standard linux program to transmit and receive IR signals called [LIRC](http://www.lirc.org/).
+It uses configuration files to define a "remote" from which you can send key code signals
+This program builds a single message and writes a configuration file to represent that message and restarts the LIRC daemon
+It then executes an LIRC command to send that message.
+
+Additionally there are modules for web and MQTT interfaces.
+
+
+This repository contains python modules to:
    - Represent the Daikin state
    - Represent that state as a binary message that the Daikin unit can receive
    - Convert binary messages into an LIRC remote configuration (using IR pulse and gap lengths that the unit can receive)
@@ -21,6 +30,12 @@ This repository contains python modules to:
 Tested on my split system which uses a remote with the model number `ARC433B70`
 
 ## Installation
+
+### The Circuit
+
+Build this circuit(you can skip the receiver if you want) and use gpio pins 22 and 23 for out and in respectively
+https://upverter.com/design/alexbain/f24516375cfae8b9/open-source-universal-remote/#/
+
 
 
 ### Install Raspbian Stretch
@@ -40,20 +55,27 @@ sudo apt install rpi-update
 sudo rpi-update a08ece3d48c3c40bf1b501772af9933249c11c5b  # last commit on 4.19
 ```
 
-### Run Installation Script
+### Installation Script
 
-There's an installation script located in `install/install.sh`
+Install git and clone this repo to `/home/pi/daikin-pi`.
+There's an installation script located in `install/install.sh` run this command to install all prerequisites and configure LIRC. Reboot.
 
-There's a statup script call run.sh which will auto run the mqtt service within a tmux session on boot
+From there you can run the MQTT server by running
+
+`sudo /root/.venvs/daikin/bin/python /home/pi/daikin-pi/daikin/mqtt_server.py`
+
+
+There's also a statup script called `run.sh` which will auto run the mqtt service within a tmux session on boot
 This allows you to just plug it in and it'll connect to the server
 
-Add this line to `/etc/rc.local`:
+Add this line to `/etc/rc.local` to install it:
 
 `/home/pi/daikin-pi/run.sh`
 
+You can then see the running command after booting by entering `sudo tmux attach`
 
 
-### Configure LIRC
+### Alternatively, Configure LIRC Manually
 
 Assumes the use of gpio pin 22 for tx, 23 for rx, edit accordingly.
 
