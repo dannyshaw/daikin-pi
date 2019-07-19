@@ -23,22 +23,29 @@ class TestMQTTDaikinSetters(TestCase):
         set_temperature(30)
         dmock.update.assert_called_with(temperature=30)
 
+    def test_set_power(self, daikin):
+        dmock = MagicMock(spec=DaikinController)
+        daikin.return_value = dmock
+
+        set_power('on')
+        dmock.update.assert_called_with(power=True)
+        set_power('off')
+        dmock.update.assert_called_with(power=False)
+
     def test_set_mode(self, daikin):
         dmock = MagicMock(spec=DaikinController)
         daikin.return_value = dmock
 
-        set_mode('off')
-        dmock.update.assert_called_with(power=False)
         set_mode('auto')
-        dmock.update.assert_called_with(power=True, ac_mode=AC_MODE.AUTO)
+        dmock.update.assert_called_with(ac_mode=AC_MODE.AUTO)
         set_mode('cool')
-        dmock.update.assert_called_with(power=True, ac_mode=AC_MODE.COOL)
+        dmock.update.assert_called_with(ac_mode=AC_MODE.COOL)
         set_mode('heat')
-        dmock.update.assert_called_with(power=True, ac_mode=AC_MODE.HEAT)
+        dmock.update.assert_called_with(ac_mode=AC_MODE.HEAT)
         set_mode('fan_only')
-        dmock.update.assert_called_with(power=True, ac_mode=AC_MODE.FAN)
+        dmock.update.assert_called_with(ac_mode=AC_MODE.FAN)
         set_mode('dry')
-        dmock.update.assert_called_with(power=True, ac_mode=AC_MODE.DRY)
+        dmock.update.assert_called_with(ac_mode=AC_MODE.DRY)
 
     def test_set_fan(self, daikin):
         dmock = MagicMock(spec=DaikinController)

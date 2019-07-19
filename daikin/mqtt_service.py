@@ -163,7 +163,7 @@ def set_swing(value):
 
 def set_power(value):
     logger.info('setting power to {}'.format(value))
-    power = value == 'ON'
+    power = value.lower() == 'on'
     send_daikin_state(power=power)
 
 
