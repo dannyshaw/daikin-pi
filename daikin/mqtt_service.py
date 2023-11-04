@@ -38,7 +38,7 @@ climate:
 """
 logger = logging.getLogger(__name__)
 
-MQTT_BROKER = os.environ.get('MQTT_BROKER', '10.245.52.187')
+MQTT_BROKER = os.environ.get('MQTT_BROKER', 'mqtt_ip')
 # MQTT_BROKER = os.environ.get('MQTT_BROKER', 'localhost')
 MQTT_USER = os.environ.get('MQTT_USER', 'mqtt_user')
 MQTT_PASS = os.environ.get('MQTT_PASS', 'mqtt_password')
@@ -139,7 +139,12 @@ def set_mode(value):
         'fan_only': AC_MODE.FAN,
     }.get(value, AC_MODE.AUTO)
 
-    send_daikin_state(ac_mode=ac_mode)
+    if(value == "off"):
+        power = False
+    else:
+        power = True
+    
+    send_daikin_state(ac_mode=ac_mode, power=power)
 
 
 def set_fan(value):
